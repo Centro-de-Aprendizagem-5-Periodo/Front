@@ -1,12 +1,13 @@
-<script setup> 
+<script setup>
 const props = defineProps(['title'])
+
 </script>
 
 <template>
     <header>
-        <div>
+        <div id="header-component">
             <p id="title">
-            {{props.title}}
+                {{ props.title }}
             </p>
         </div>
     </header>
@@ -24,14 +25,12 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80vw;
+    width: 100vw;
     height: 90px;
 }
 
 #title {
     font-family: $font-style;
     font-weight: bold;
-    font-size: $title-font-size;
 }
-
 </style>
