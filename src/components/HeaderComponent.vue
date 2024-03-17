@@ -4,9 +4,11 @@ const props = defineProps(['title'])
 
 <template>
     <header>
-        <p id="title">
+        <div>
+            <p id="title">
             {{props.title}}
-        </p>
+            </p>
+        </div>
     </header>
 </template>
 
@@ -14,11 +16,15 @@ const props = defineProps(['title'])
 @import '../assets/global.scss';
 
 header {
+    float: right;
+}
+
+div {
     background-color: $header-light-gray;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80vw;
     height: 90px;
 }
 

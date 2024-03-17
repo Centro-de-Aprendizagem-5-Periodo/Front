@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import SomeView from "../views/SomeView.vue"
+import MeusCursosView from "../views/MeusCursosView.vue"
 
 const routes = [
     {
       path: "/",
       name: "home",
-      component: SomeView,
+      component: MeusCursosView,
       meta: { headerName: "Home" },
     }
   ];
