@@ -82,22 +82,19 @@ export default {
       if (!this.noOverlay) {
         document.body.classList.add('bm-overlay');
       }
-      if (this.right) {
-        this.$refs.sideNav.style.left = 'auto';
-        this.$refs.sideNav.style.right = '0px';
-      }
+
       this.$nextTick(function () {
         this.$refs.sideNav.style.width = this.width
           ? this.width + 'px'
           : '300px';
       });
-      let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
+      let width = this.$attrs.width ? this.$attrs.width + 'px' : '100px';
 
       this.bodyOldStyle = document.body.getAttribute('style') || '';
       document.body.style.overflowX = 'hidden';
       document.querySelector(
         '#page-wrap'
-      ).style.transform = `translate3d(${width}, 0px, 0px )`;
+      ).style.transform = `translate(${width}, 0px)`;
 
       document.querySelector('#page-wrap').style.transition =
         'all 0.5s ease 0s';
