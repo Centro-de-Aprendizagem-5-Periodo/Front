@@ -1,5 +1,6 @@
 <script>
 import NavbarComponent from './components/NavbarComponent.vue';
+
 export default {
 	components: {
 		NavbarComponent,
@@ -7,10 +8,25 @@ export default {
 }
 </script>
 <template>
-	<NavbarComponent></NavbarComponent>
-	<menu id="page-wrap">
-		<router-view class="views" />
-	</menu>
+	<div>
+		<NavbarComponent />
+		<menu id="page-wrap">
+			<router-view class="views" />
+		</menu>
+	</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+template {
+	display: flex;
+}
+
+div {
+	display: flex;
+	flex-direction: row;
+}
+
+#page-wrap {
+	flex-grow: 1;
+}
+</style>./components/NavbarComponent.vue

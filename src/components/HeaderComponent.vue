@@ -1,36 +1,55 @@
 <script setup>
 const props = defineProps(['title'])
 
+function openNavBar() {
+	document.querySelector('#nav-bar').style.cssText = 'display: block;'
+	document.querySelector('#hamburguinho').style.display = 'none';
+	document.querySelector('#page-wrap').style.paddingLeft = '20vw';
+
+}
 </script>
 
 <template>
-    <header>
-        <div id="header-component">
-            <p id="title">
-                {{ props.title }}
-            </p>
-        </div>
-    </header>
+	<header id="header-component">
+		<div id="hamburguinho" @click="openNavBar">
+			<font-awesome-icon icon="bars" size="2x" />
+		</div>
+		<div id="container-title">
+			<p id="title">
+				{{ props.title }}
+			</p>
+		</div>
+	</header>
 </template>
 
 <style lang="scss" scoped>
 @import '../assets/global.scss';
 
 header {
-    float: right;
+	background-color: $header-light-gray;
+	width: 100%;
+	display: flex;
+
+	height: 70px;
+	flex: 1;
 }
 
-div {
-    background-color: $header-light-gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 90px;
+#container-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 }
 
 #title {
-    font-family: $font-style;
-    font-weight: bold;
+	font-family: $font-style;
+	font-weight: bold;
+}
+
+#hamburguinho {
+	width: fit-content;
+	padding-left: 5px;
+	display: flex;
+	align-items: center;
 }
 </style>

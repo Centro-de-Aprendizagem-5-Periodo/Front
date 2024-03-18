@@ -1,233 +1,45 @@
 <template>
-  <div>
-    <div ref="sideNav" class="bm-menu">
-      <nav class="bm-item-list">
-        <slot></slot>
-      </nav>
-      <span class="bm-cross-button cross-style" @click="closeMenu" :class="{ hidden: !crossIcon }">
-        <span v-for="(x, index) in 2" :key="x" class="bm-cross"
-          :style="{ position: 'absolute', width: '3px', height: '14px', transform: index === 1 ? 'rotate(45deg)' : 'rotate(-45deg)' }">
-        </span>
-      </span>
-    </div>
+	<div id="nav-bar">
+		<div id="log-out">
+			<font-awesome-icon icon="sign-out" color="#ebe1e1" size="2x" />
 
-    <div ref="bmBurgerButton" class="bm-burger-button" @click="openMenu" :class="{ hidden: !burgerIcon }">
-      <span class="bm-burger-bars line-style" :style="{ top: 20 * (index * 2) + '%' }" v-for="(x, index) in 3"
-        :key="index"></span>
-    </div>
+			<font-awesome-icon icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" />
+		</div>
+		<!-- TODO: dentro desse nav chamaremos nossos botões -->
+		<nav class="item-list">
+			<slot>
+				<p></p>
+			</slot>
+		</nav>
 
-  </div>
+
+	</div>
 </template>
 
-<script>
-export default {
-  name: 'menubar',
-  data() {
-    return {
-      isSideBarOpen: false
-    };
-  },
-  props: {
-    isOpen: {
-      type: Boolean,
-      required: false
-    },
-    right: {
-      type: Boolean,
-      required: false
-    },
-    width: {
-      type: [String],
-      required: false,
-      default: '300'
-    },
-    disableEsc: {
-      type: Boolean,
-      required: false
-    },
-    noOverlay: {
-      type: Boolean,
-      required: false
-    },
-    onStateChange: {
-      type: Function,
-      required: false
-    },
-    burgerIcon: {
-      type: Boolean,
-      required: false,
-      default: true
-    },
-    crossIcon: {
-      type: Boolean,
-      required: false,
-      default: true
-    },
-    disableOutsideClick: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
-    closeOnNavigation: {
-      type: Boolean,
-      required: false,
-      default: false
-    }
-  },
-  methods: {
-    openMenu() {
-      this.$emit('openMenu');
-      this.isSideBarOpen = true;
+<script setup>
+function closeNavBar() {
+	document.querySelector('#nav-bar').style.cssText = 'display: none;'
+	document.querySelector('#hamburguinho').style.display = 'flex';
+	document.querySelector('#page-wrap').style.paddingLeft = '0';
 
-      if (!this.noOverlay) {
-        document.body.classList.add('bm-overlay');
-      }
-
-      this.$nextTick(function () {
-        this.$refs.sideNav.style.width = this.width
-          ? this.width + 'px'
-          : '300px';
-      });
-      let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
-
-      this.bodyOldStyle = document.body.getAttribute('style') || '';
-      document.body.style.overflowX = 'hidden';
-      document.querySelector(
-        '#page-wrap'
-      ).style.transform = `translate(${width}, 0px)`;
-
-      document.querySelector('#page-wrap').style.transition =
-        'all 0.5s ease 0s';
-
-    },
-
-    closeMenu() {
-      this.$emit('closeMenu');
-      this.isSideBarOpen = false;
-      document.body.classList.remove('bm-overlay');
-      this.$refs.sideNav.style.width = '0px';
-      document.querySelector('#page-wrap').style.transition =
-        'all 0.5s ease 0s';
-      document.querySelector('#page-wrap').style.transform = '';
-      document.body.setAttribute('style', this.bodyOldStyle);
-    },
-    hasClass(element, className) {
-      do {
-        if (element.classList && element.classList.contains(className)) {
-          return true;
-        }
-        element = element.parentNode;
-      } while (element);
-      return false;
-    },
-  },
-  watch: {
-    isOpen: {
-      deep: true,
-      immediate: true,
-      handler(newValue, oldValue) {
-        this.$nextTick(() => {
-          if (!oldValue && newValue) {
-            this.openMenu();
-          }
-          if (oldValue && !newValue) {
-            this.closeMenu();
-          }
-        });
-      }
-    }
-  }
-};
+}
 </script>
 
 <style scoped>
-html {
-  height: 100%;
+#nav-bar {
+	height: 100vh;
+	z-index: 1000;
+	display: none;
+	width: 20%;
+	background-color: rgb(63, 63, 65);
+	transition: 0.5s;
+	padding: 5px;
+	position: fixed;
 }
 
-.bm-burger-button {
-  position: absolute;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px;
-  cursor: pointer;
-}
-
-.bm-burger-button.hidden {
-  display: none;
-}
-
-.bm-burger-bars {
-  background-color: #373a47;
-}
-
-.line-style {
-  position: absolute;
-  height: 20%;
-  left: 0;
-  right: 0;
-}
-
-.cross-style {
-  position: absolute;
-  top: 12px;
-  right: 2px;
-  cursor: pointer;
-}
-
-.bm-cross {
-  background: #bdc3c7;
-}
-
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-}
-
-.bm-cross-button.hidden {
-  display: none;
-}
-
-.bm-menu {
-  height: 100%;
-  /* 100% Full-height */
-  width: 0;
-  /* 0 width - change this with JavaScript */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1000;
-  /* Stay on top */
-
-  background-color: rgb(63, 63, 65);
-  /* Black*/
-  overflow-x: hidden;
-  /* Disable horizontal scroll */
-  padding-top: 60px;
-  /* Place content 60px from the top */
-  transition: 0.5s;
-  /*0.5 second transition effect to slide in the sidenav*/
-}
-
-.bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.bm-item-list {
-  color: #b8b7ad;
-  margin-left: 10%;
-  font-size: 20px;
-}
-
-.bm-item-list>* {
-  display: flex;
-  text-decoration: none;
-  padding: 0.7em;
-}
-
-.bm-item-list>*>span {
-  margin-left: 10px;
-  font-weight: 700;
-  color: white;
+#log-out {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
 }
 </style>
