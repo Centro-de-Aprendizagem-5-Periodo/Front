@@ -111,38 +111,6 @@ export default {
       document.querySelector('#page-wrap').style.transform = '';
       document.body.setAttribute('style', this.bodyOldStyle);
     },
-
-    closeMenuOnEsc(e) {
-      e = e || window.event;
-      if (e.key === 'Escape' || e.keyCode === 27) {
-        this.closeMenu();
-      };
-    },
-    documentClick(e) {
-      let element = this.$refs.bmBurgerButton;
-      let target = null;
-      if (e && e.target) {
-        target = e.target;
-      }
-
-      if (
-        element &&
-        element !== target &&
-        !element.contains(target) &&
-        !this.hasClass(target, 'bm-menu') &&
-        this.isSideBarOpen &&
-        !this.disableOutsideClick
-      ) {
-        this.closeMenu();
-      } else if (
-        element &&
-        this.hasClass(target, 'bm-menu') &&
-        this.isSideBarOpen &&
-        this.closeOnNavigation
-      ) {
-        this.closeMenu();
-      }
-    },
     hasClass(element, className) {
       do {
         if (element.classList && element.classList.contains(className)) {
