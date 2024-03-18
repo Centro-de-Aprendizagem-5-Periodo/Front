@@ -88,7 +88,7 @@ export default {
           ? this.width + 'px'
           : '300px';
       });
-      let width = this.$attrs.width ? this.$attrs.width + 'px' : '100px';
+      let width = this.$attrs.width ? this.$attrs.width + 'px' : '300px';
 
       this.bodyOldStyle = document.body.getAttribute('style') || '';
       document.body.style.overflowX = 'hidden';
