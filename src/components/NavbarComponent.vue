@@ -2,7 +2,7 @@
 	<div id="nav-bar">
 		<div id="log-out">
 			<font-awesome-icon icon="sign-out" color="#ebe1e1" size="2x" />
-
+			<ProfileComponent></ProfileComponent>
 			<font-awesome-icon icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" />
 		</div>
 		<!-- TODO: dentro desse nav chamaremos nossos botões -->
@@ -11,17 +11,16 @@
 				<p></p>
 			</slot>
 		</nav>
-
-
 	</div>
 </template>
 
 <script setup>
+import ProfileComponent from './ProfileComponent.vue';
+
 function closeNavBar() {
 	document.querySelector('#nav-bar').style.cssText = 'display: none;'
 	document.querySelector('#hamburguinho').style.display = 'flex';
 	document.querySelector('#page-wrap').style.paddingLeft = '0';
-
 }
 </script>
 
