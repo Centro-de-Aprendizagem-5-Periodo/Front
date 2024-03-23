@@ -1,3 +1,22 @@
+<script setup>
+import ButtonComponent from './ButtonComponent.vue';
+import ProfileComponent from './ProfileComponent.vue';
+
+// TODO: jogar os botões para a MeusCursos.view e utilizar props na navbar para passar os buttons a serem renderizados
+
+const buttons = [
+	{ nome: 'Meus cursos', icone: 'graduation-cap'},
+	{ nome: 'Meus certificados', icone: 'scroll'},
+	{ nome: 'Todos os cursos', icone: 'book'}
+]
+
+function closeNavBar() {
+	document.querySelector('#nav-bar').style.cssText = 'display: none;'
+	document.querySelector('#hamburguinho').style.display = 'flex';
+	document.querySelector('#page-wrap').style.paddingLeft = '0';
+}
+</script>
+
 <template>
 	<div id="nav-bar">
 		<div id="log-out">
@@ -7,22 +26,10 @@
 		</div>
 		<!-- TODO: dentro desse nav chamaremos nossos botões -->
 		<nav class="item-list">
-			<slot>
-				<p></p>
-			</slot>
+			<ButtonComponent v-for="button in buttons" :button-title="button.nome" :button-icon="button.icone"></ButtonComponent>
 		</nav>
 	</div>
 </template>
-
-<script setup>
-import ProfileComponent from './ProfileComponent.vue';
-
-function closeNavBar() {
-	document.querySelector('#nav-bar').style.cssText = 'display: none;'
-	document.querySelector('#hamburguinho').style.display = 'flex';
-	document.querySelector('#page-wrap').style.paddingLeft = '0';
-}
-</script>
 
 <style scoped>
 #nav-bar {
@@ -41,4 +48,11 @@ function closeNavBar() {
 	width: 100%;
 	justify-content: space-between;
 }
+
+.item-list {
+	margin-top: 40px;
+	width: 100%;
+	height: 200px;
+}
+
 </style>

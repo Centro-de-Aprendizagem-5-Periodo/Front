@@ -29,4 +29,4 @@ div {
 #page-wrap {
 	flex-grow: 1;
 }
-</style>./components/NavbarComponent.vue
+</style>

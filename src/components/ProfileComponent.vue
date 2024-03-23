@@ -23,7 +23,7 @@ function handleEnter(event) {
     <div id="profile">
         <img src="https://st3.depositphotos.com/1594920/18263/i/450/depositphotos_182639510-stock-photo-sphynx-hairless-cat-4-years.jpg">
         <p v-if="!editingName">
-            {{ name }}
+           {{ name }}
             <font-awesome-icon id="icon" :icon="['fas', 'pencil']" style="color: #ffffff;" @click="toggleEdit"/>
         </p>
         <input v-else v-model="newName" @keyup.enter="handleEnter">
