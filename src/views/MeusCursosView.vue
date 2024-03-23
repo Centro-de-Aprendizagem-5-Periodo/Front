@@ -1,19 +1,12 @@
-<script>
+<script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
+import { useRoute } from 'vue-router';
 
-export default {
-  components: {
-    HeaderComponent,
-  },
+const route = useRoute();
+const currentHeaderTitle = route.meta.headerName
 
-  data() {
-    return {
-      currentHeaderTitle: this.$route.meta.headerName
-    };
-  }
-};
 </script>
 
 <template>
-  <HeaderComponent :title="this.currentHeaderTitle"></HeaderComponent>
+  <HeaderComponent :title="currentHeaderTitle"></HeaderComponent>
 </template>
