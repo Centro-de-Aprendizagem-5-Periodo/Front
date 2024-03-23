@@ -14,7 +14,8 @@
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "vue": "^3.4.19",
     "vue-burger-menu": "^2.0.5",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

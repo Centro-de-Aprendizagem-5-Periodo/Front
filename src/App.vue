@@ -2,9 +2,9 @@
 import NavbarComponent from './components/NavbarComponent.vue';
 
 const buttons = [
-	{ nome: 'Meus cursos', icone: 'graduation-cap' },
-	{ nome: 'Meus certificados', icone: 'scroll' },
-	{ nome: 'Todos os cursos', icone: 'book' }
+	{ title: 'Meus cursos', icon: 'graduation-cap', routeName: 'Meus Cursos'},
+	{ title: 'Meus certificados', icon: 'scroll', routeName: 'Meus Certificados'},
+	{ title: 'Todos os cursos', icon: 'book', routeName: 'Todos Cursos' }
 ];
 
 </script>

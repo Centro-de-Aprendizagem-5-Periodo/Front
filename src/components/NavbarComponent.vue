@@ -1,8 +1,9 @@
 <script setup>
 import ButtonComponent from './ButtonComponent.vue';
 import ProfileComponent from './ProfileComponent.vue';
+import { useStore } from 'vuex';
 
-// TODO: jogar os botões para a MeusCursos.view e utilizar props na navbar para passar os buttons a serem renderizados
+const store = useStore();
 const props = defineProps({
 	buttons: Array
 });
@@ -11,19 +12,20 @@ function closeNavBar() {
 	document.querySelector('#nav-bar').style.cssText = 'display: none;'
 	document.querySelector('#hamburguinho').style.display = 'flex';
 	document.querySelector('#page-wrap').style.paddingLeft = '0';
+	store.dispatch('toggleNavbar');
 }
 </script>
 
 <template>
 	<div id="nav-bar">
 		<div id="log-out">
-			<i><font-awesome-icon icon="sign-out" color="#ebe1e1" size="2x" /></i>
+			<i><font-awesome-icon class="icon" icon="sign-out" color="#ebe1e1" size="2x" /></i>
 			<ProfileComponent></ProfileComponent>
-			<i><font-awesome-icon icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
+			<i><font-awesome-icon class="icon" icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
 		</div>
 		<!-- TODO: dentro desse nav chamaremos nossos botões -->
 		<nav class="item-list">
-			<ButtonComponent v-for="button in buttons" :button-title="button.nome" :button-icon="button.icone" />
+			<ButtonComponent v-for="button in buttons" :button-props="button"/>
 		</nav>
 	</div>
 </template>
@@ -36,7 +38,6 @@ function closeNavBar() {
 	width: 20%;
 	background-color: rgb(63, 63, 65);
 	transition: 0.5s;
-	padding: 5px;
 	position: fixed;
 }
 
@@ -52,7 +53,9 @@ function closeNavBar() {
 	height: 200px;
 }
 
-i {
+.icon {
+	padding: 5px;
 	cursor: pointer;
 }
+
 </style>

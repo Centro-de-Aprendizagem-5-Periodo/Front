@@ -1,15 +1,25 @@
 <script setup>
-const props = defineProps(['buttonTitle', 'buttonIcon'])
+import { useRouter } from 'vue-router';
+
+const props = defineProps({
+    buttonProps: Object
+})
+
+function isSelectedButton(button) {
+    const router = useRouter();
+    return (button.routeName === router.currentRoute.value.name)
+}
+
 </script>
 
 <template>
-    <button>
+    <button :class="isSelectedButton(buttonProps) ? 'selected' : ''" @click="$router.push({ name: buttonProps.routeName })">
         <div>
-            <font-awesome-icon :icon="props.buttonIcon" color="#ebe1e1" size="2x"/>
+            <font-awesome-icon :icon="buttonProps.icon" color="#ebe1e1" size="2x"/>
         </div>
         
         <span>
-            <p>{{ props.buttonTitle }}</p>
+            <p>{{ buttonProps.title }}</p>
         </span>
     </button>
 </template>
@@ -20,14 +30,14 @@ const props = defineProps(['buttonTitle', 'buttonIcon'])
 button {
     display: flex;
     align-items: center;
-	border: none;
     cursor: pointer;
-    margin-left: 15px;
+    padding: 0px;
 	width: 100%;
 	height: 50px;
     gap: 5px;
-    background-color: Transparent;
     text-align: start;
+    background-color: transparent;
+    border: none;
 }
 
 div {
@@ -36,6 +46,7 @@ div {
     align-items: center;
     width: 36px;
     height: 36px;
+    padding-left: 7px;
 }
 
 span {
@@ -43,6 +54,16 @@ span {
     color: white;
     font-size: 20px;
     font-family: $font-style;
+}
+
+.selected {
+    border: solid;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-width: 8px;
+    border-color: #5EAD4A;
+    background-color: gray;
 }
 
 </style>

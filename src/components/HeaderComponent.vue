@@ -1,17 +1,22 @@
 <script setup>
+import { useStore } from 'vuex';
+
+const store = useStore();
+const isNavbarOpen = store.getters.isNavbarOpen;
 const props = defineProps(['title'])
 
 function openNavBar() {
 	document.querySelector('#nav-bar').style.cssText = 'display: block;'
 	document.querySelector('#hamburguinho').style.display = 'none';
 	document.querySelector('#page-wrap').style.paddingLeft = '20vw';
-
+	store.dispatch('toggleNavbar');
 }
+
 </script>
 
 <template>
 	<header id="header-component">
-		<div id="hamburguinho" @click="openNavBar">
+		<div v-if="!isNavbarOpen" id="hamburguinho" @click="openNavBar">
 			<font-awesome-icon icon="bars" size="2x" />
 		</div>
 		<div id="container-title">
