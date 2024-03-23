@@ -3,12 +3,9 @@ import ButtonComponent from './ButtonComponent.vue';
 import ProfileComponent from './ProfileComponent.vue';
 
 // TODO: jogar os botões para a MeusCursos.view e utilizar props na navbar para passar os buttons a serem renderizados
-
-const buttons = [
-	{ nome: 'Meus cursos', icone: 'graduation-cap'},
-	{ nome: 'Meus certificados', icone: 'scroll'},
-	{ nome: 'Todos os cursos', icone: 'book'}
-]
+const props = defineProps({
+	buttons: Array
+});
 
 function closeNavBar() {
 	document.querySelector('#nav-bar').style.cssText = 'display: none;'
@@ -20,13 +17,13 @@ function closeNavBar() {
 <template>
 	<div id="nav-bar">
 		<div id="log-out">
-			<font-awesome-icon icon="sign-out" color="#ebe1e1" size="2x" />
+			<i><font-awesome-icon icon="sign-out" color="#ebe1e1" size="2x" /></i>
 			<ProfileComponent></ProfileComponent>
-			<font-awesome-icon icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" />
+			<i><font-awesome-icon icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
 		</div>
 		<!-- TODO: dentro desse nav chamaremos nossos botões -->
 		<nav class="item-list">
-			<ButtonComponent v-for="button in buttons" :button-title="button.nome" :button-icon="button.icone"></ButtonComponent>
+			<ButtonComponent v-for="button in buttons" :button-title="button.nome" :button-icon="button.icone" />
 		</nav>
 	</div>
 </template>
@@ -55,4 +52,7 @@ function closeNavBar() {
 	height: 200px;
 }
 
+i {
+	cursor: pointer;
+}
 </style>

@@ -4,12 +4,22 @@ import NavbarComponent from './components/NavbarComponent.vue';
 export default {
 	components: {
 		NavbarComponent,
+	},
+	data() {
+		return {
+			buttons: [
+				{ nome: 'Meus cursos', icone: 'graduation-cap' },
+				{ nome: 'Meus certificados', icone: 'scroll' },
+				{ nome: 'Todos os cursos', icone: 'book' }
+			]
+		}
 	}
 }
+
 </script>
 <template>
 	<div>
-		<NavbarComponent />
+		<NavbarComponent :buttons="buttons" />
 		<menu id="page-wrap">
 			<router-view class="views" />
 		</menu>
