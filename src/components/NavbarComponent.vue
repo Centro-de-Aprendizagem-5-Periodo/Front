@@ -2,18 +2,21 @@
 import ButtonComponent from './ButtonComponent.vue';
 import ProfileComponent from './ProfileComponent.vue';
 import { useStore } from 'vuex';
+import { ref } from 'vue';
 
 const store = useStore();
+
 const props = defineProps({
 	buttons: Array
 });
 
 function closeNavBar() {
-	document.querySelector('#nav-bar').style.cssText = 'display: none;'
+	document.querySelector('#nav-bar').style.cssText = 'display: none;';
 	document.querySelector('#hamburguinho').style.display = 'flex';
 	document.querySelector('#page-wrap').style.paddingLeft = '0';
 	store.dispatch('toggleNavbar');
 }
+
 </script>
 
 <template>
@@ -25,7 +28,7 @@ function closeNavBar() {
 		</div>
 		<!-- TODO: dentro desse nav chamaremos nossos botões -->
 		<nav class="item-list">
-			<ButtonComponent v-for="button in buttons" :button-props="button"/>
+			<ButtonComponent v-for="button in buttons" :button-props="button" />
 		</nav>
 	</div>
 </template>
@@ -34,7 +37,6 @@ function closeNavBar() {
 #nav-bar {
 	height: 100vh;
 	z-index: 1000;
-	display: none;
 	width: 20%;
 	background-color: rgb(63, 63, 65);
 	transition: 0.5s;
@@ -57,5 +59,4 @@ function closeNavBar() {
 	padding: 5px;
 	cursor: pointer;
 }
-
 </style>

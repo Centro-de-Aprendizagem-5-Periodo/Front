@@ -54,7 +54,7 @@ header {
 #hamburguinho {
 	width: fit-content;
 	padding-left: 5px;
-	display: flex;
+	display: none;
 	align-items: center;
 }
 </style>
