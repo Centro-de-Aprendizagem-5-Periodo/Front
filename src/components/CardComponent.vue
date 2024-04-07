@@ -36,16 +36,20 @@ p {
     border: 1px solid $gray;
     border-bottom-width: 0;
     width: 18vw;
+    min-width: 220px;
     height: 180px;
 }
 
 #titleArea {
     display: flex;
     align-items: center;
+    border: 1px solid $gray;
+    border-top-width: 0;
     background-color: $light-gray;
     font-family: $font-style;
     font-weight: 600;
-    width: 18.1vw;
+    width: 18vw;
+    min-width: 220px;
     height: 40px;
 }
 

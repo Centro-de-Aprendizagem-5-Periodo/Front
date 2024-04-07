@@ -2,7 +2,6 @@
 import ButtonComponent from './ButtonComponent.vue';
 import ProfileComponent from './ProfileComponent.vue';
 import { useStore } from 'vuex';
-import { ref } from 'vue';
 
 const store = useStore();
 

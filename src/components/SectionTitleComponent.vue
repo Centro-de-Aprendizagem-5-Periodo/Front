@@ -1,0 +1,88 @@
+<script setup>
+import { useRouter } from 'vue-router';
+import CardComponent from './CardComponent.vue';
+
+const router = useRouter()
+const meta = router.currentRoute.value.meta
+const sections = meta.sections
+
+</script>
+<template>
+    <section v-for="(section) in sections" id="section-container">
+        <div id="section-content">
+            <hr/>
+            <div id="content-items"> 
+                <font-awesome-icon id="icon" icon="play" size="2x" />
+                <p> {{ section.title }} </p>
+            </div>
+            <hr/>
+        </div>
+        <div id="cards">
+            <CardComponent v-for="(course) in section.courses" id="course-card" :title="course.courseTitle"/>
+        </div>
+    </section>
+</template>
+<style lang="scss" scoped>
+@import '../assets/global.scss';
+
+p {
+    font-family: $font-style;
+    font-weight: bold;
+}
+
+hr {
+    height: 2px;
+    border: none;
+    background-color: $header-light-gray;
+}
+
+#icon {
+    color: $header-light-gray
+}
+
+#section-content {
+    width: 75%;
+    display: block;
+}
+
+#section-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 35px
+}
+
+#cards {
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 25px;
+}
+
+#content-items {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+#course-card {
+    display: block;
+}
+
+@media (max-width: 1250px) {
+    #cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 25px
+    }
+}
+
+@media (max-width: 800px) {
+    #cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 20px
+    }
+}
+
+</style>
