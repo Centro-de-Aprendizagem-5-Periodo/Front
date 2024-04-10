@@ -14,16 +14,16 @@ const props = defineProps({
 <template>
     <section v-for="(section) in props.sections || sections" id="section-container">
         <div id="section-content">
-            <hr/>
-            <div id="content-items"> 
+            <hr />
+            <div id="content-items">
                 <font-awesome-icon id="icon" icon="play" size="2x" />
                 <p> {{ section.title || section }} </p>
             </div>
-            <hr/>
+            <hr />
         </div>
         <!-- Nao faz parte do escopo do componente section title. Mover CardComponent para a view onde será usada-->
         <div id="cards">
-            <CardComponent v-for="(course) in section.courses" id="course-card" :title="course.courseTitle"/>
+            <CardComponent v-for="(course) in section.courses" id="course-card" :title="course.courseTitle" />
         </div>
     </section>
 </template>
@@ -54,7 +54,7 @@ hr {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 35px
+    padding-top: 105px
 }
 
 #cards {
@@ -89,5 +89,4 @@ hr {
         row-gap: 20px
     }
 }
-
 </style>

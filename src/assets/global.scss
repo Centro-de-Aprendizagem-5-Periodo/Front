@@ -21,12 +21,33 @@ $icon-color: $white;
 $title-font-size: 20px;
 $primary-font-size: 16px;
 
+
 #page-wrap {
-    padding-left: 20vw
+    padding-left: 98vw;
 }
 
 ;
-// -- reset css
+
+#nav-bar {
+    width: 98%;
+}
+
+
+;
+
+@media screen and (min-width: 1146px) {
+    #page-wrap {
+        padding-left: 20vw;
+    }
+
+    ;
+
+    #nav-bar {
+        width: 20%;
+    }
+}
+
+;
 
 
 * {
