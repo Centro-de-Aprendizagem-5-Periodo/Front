@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore();
@@ -8,9 +9,33 @@ const props = defineProps(['title'])
 function openNavBar() {
 	document.querySelector('#nav-bar').style.cssText = 'display: block;'
 	document.querySelector('#hamburguinho').style.display = 'none';
-	document.querySelector('#page-wrap').style.paddingLeft = '20vw';
+	ajustarTamanhoNavBar();
 	store.dispatch('toggleNavbar');
 }
+
+onMounted(() => {
+	window.addEventListener('resize', () => {
+		ajustarTamanhoNavBar()
+	})
+});
+
+function ajustarTamanhoNavBar() {
+	let navBar = document.querySelector('#nav-bar').display === 'none'
+
+	if (!navBar) {
+		if (window.innerWidth <= 1145) {
+			setPadding('98vw');
+			document.querySelector('#nav-bar').style.width = '98%';
+		} else {
+			setPadding('20vw');
+			document.querySelector('#nav-bar').style.width = '20%';
+		}
+	}
+}
+
+const setPadding = (paddingValue) => {
+	document.querySelector('#page-wrap').style.paddingLeft = paddingValue;
+};
 
 </script>
 
@@ -34,9 +59,9 @@ header {
 	background-color: $header-light-gray;
 	width: 100%;
 	display: flex;
-
 	height: 70px;
 	flex: 1;
+	position: fixed;
 }
 
 #container-title {

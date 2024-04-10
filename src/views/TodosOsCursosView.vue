@@ -1,6 +1,7 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
 import NavbarComponent from '../components/NavbarComponent.vue';
+import SectionTitleComponent from '../components/SectionTitleComponent.vue';
 
 import { useRoute } from 'vue-router';
 
@@ -19,6 +20,8 @@ const buttons = [
 
 	<div id="page-wrap">
 		<HeaderComponent :title="currentHeaderTitle"></HeaderComponent>
+		<SectionTitleComponent></SectionTitleComponent>
+
 	</div>
 </template>
 

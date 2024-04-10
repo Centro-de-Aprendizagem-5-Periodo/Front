@@ -36,7 +36,6 @@ function closeNavBar() {
 #nav-bar {
 	height: 100vh;
 	z-index: 1000;
-	width: 20%;
 	background-color: rgb(63, 63, 65);
 	transition: 0.5s;
 	position: fixed;
