@@ -6,17 +6,22 @@ const router = useRouter()
 const meta = router.currentRoute.value.meta
 const sections = meta.sections
 
+const props = defineProps({
+    sections: Array
+});
+
 </script>
 <template>
-    <section v-for="(section) in sections" id="section-container">
+    <section v-for="(section) in props.sections || sections" id="section-container">
         <div id="section-content">
             <hr/>
             <div id="content-items"> 
                 <font-awesome-icon id="icon" icon="play" size="2x" />
-                <p> {{ section.title }} </p>
+                <p> {{ section.title || section }} </p>
             </div>
             <hr/>
         </div>
+        <!-- Nao faz parte do escopo do componente section title. Mover CardComponent para a view onde será usada-->
         <div id="cards">
             <CardComponent v-for="(course) in section.courses" id="course-card" :title="course.courseTitle"/>
         </div>

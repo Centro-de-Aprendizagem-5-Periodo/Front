@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import SlidesView from "../views/SlidesView.vue"
 import MeusCursosView from "../views/MeusCursosView.vue"
 import MeusCertificadosView from "../views/MeusCertificadosView.vue"
 import TodosOsCursosView from "../views/TodosOsCursosView.vue"
