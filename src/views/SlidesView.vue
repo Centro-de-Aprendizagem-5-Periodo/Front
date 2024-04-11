@@ -1,6 +1,6 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
-import NavbarComponent from '../components/NavbarComponent.vue';
+import NavbarComponent from '../components/NavBar/NavBarComponent2.vue';
 import SectionTitleComponent from '../components/SectionTitleComponent.vue';
 import SlidesComponent from '../components/SlidesComponent.vue';
 
@@ -17,7 +17,7 @@ const sections = ["Materiais complementares:"];
 </script>
 
 <template>
-  <NavbarComponent :buttons="buttons"/>
+  <NavbarComponent :buttons="buttons" />
   <div id="page-wrap">
     <HeaderComponent :title="currentHeaderTitle"></HeaderComponent>
     <SlidesComponent :slides="slides"></SlidesComponent>

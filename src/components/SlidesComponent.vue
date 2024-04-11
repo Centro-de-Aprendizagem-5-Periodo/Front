@@ -34,9 +34,9 @@ function showSlide(slideIndex) {
 div {
     height: 60dvh;
     width: 50dvw;
-    margin: auto;
-    margin-top: 10dvh;
-    margin-bottom: 10dvh;
+    //margin: auto;
+    // margin-top: 10dvh;
+    //margin-bottom: 10dvh;
     position: relative;
 }
 
@@ -93,4 +93,5 @@ img {
     to {
         opacity: 1
     }
-}</style>
+}
+</style>

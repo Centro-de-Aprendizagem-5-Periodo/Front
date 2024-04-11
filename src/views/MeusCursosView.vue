@@ -1,6 +1,6 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
-import NavbarComponent from '../components/NavbarComponent.vue';
+import NavbarComponent from '../components//NavBar/NavbarComponent.vue';
 import { useRoute } from 'vue-router';
 import SectionTitleComponent from '../components/SectionTitleComponent.vue';
 

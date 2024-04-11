@@ -13,11 +13,12 @@ function isSelectedButton(button) {
 </script>
 
 <template>
-    <button :class="isSelectedButton(buttonProps) ? 'selected' : ''" @click="$router.push({ name: buttonProps.routeName })">
-        <div>
-            <font-awesome-icon :icon="buttonProps.icon" color="#ebe1e1" size="2x"/>
+    <button :class="isSelectedButton(buttonProps) ? 'selected' : ''"
+        @click="$router.push({ name: buttonProps.routeName })">
+        <div style="font-size:x-large">
+            <font-awesome-icon :icon="buttonProps.icon" color="#ebe1e1" />
         </div>
-        
+
         <span>
             <p>{{ buttonProps.title }}</p>
         </span>
@@ -25,15 +26,15 @@ function isSelectedButton(button) {
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/global.scss';
+@import '../../assets//global.scss';
 
 button {
     display: flex;
     align-items: center;
     cursor: pointer;
     padding: 0px;
-	width: 100%;
-	height: 50px;
+    width: 100%;
+    height: 50px;
     gap: 5px;
     text-align: start;
     background-color: transparent;
@@ -52,7 +53,7 @@ div {
 span {
     padding-left: 7px;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     font-family: $font-style;
 }
 
@@ -65,5 +66,4 @@ span {
     border-color: #5EAD4A;
     background-color: gray;
 }
-
 </style>
