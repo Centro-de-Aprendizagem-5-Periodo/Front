@@ -2,14 +2,30 @@
 </script>
 
 <template>
-    <div>Selected: {{ selected }}</div>
-
-    <select v-model="selected">
-        <option disabled value="">Please select one</option>
-        <option>A</option>
-        <option>B</option>
-        <option>C</option>
-    </select>
+    <div>
+        <select v-model="selected">
+            <option disabled value="">Selecione</option>
+            <option>Aula 1</option>
+            <option>Aula 2</option>
+            <option>Aula 3</option>
+        </select>
+    </div>
 </template>
 
-<script scoped></script>
+<style scoped>
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 7px;
+}
+
+select {
+    background-color: #242426;
+    color: antiquewhite;
+    border-color: black;
+    width: 97%;
+    height: 25px;
+
+}
+</style>

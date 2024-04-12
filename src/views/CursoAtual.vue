@@ -1,8 +1,12 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
-import NavbarComponent from '../components/NavBar/NavBarComponent2.vue';
+import NavbarComponent2 from '../components/navBar/NavBarComponent2.vue';
 import SectionTitleComponent from '../components/SectionTitleComponent.vue';
-import SlidesComponent from '../components/SlidesComponent.vue';
+import SlidesComponent from '../components/cursoAtual/SlidesComponent.vue';
+import MateriaComplementarComponent from '../components/cursoAtual/MateriaComplementarComponent.vue';
+
+import { useRoute } from 'vue-router';
+import ButtonComponent from '../components/cursoAtual/ButtonComponent.vue';
 
 const slides = [
   "https://cdn.sketchbubble.com/pub/media/catalog/product/cache/1/image/720x540/c96a280f94e22e3ee3823dd0a1a87606/s/c/scrum-process-slide1_2.png",
@@ -13,14 +17,19 @@ const slides = [
 ];
 
 const sections = ["Materiais complementares:"];
+const route = useRoute();
+const currentHeaderTitle = route.name
 
 </script>
 
 <template>
-  <NavbarComponent :buttons="buttons" />
+  <NavbarComponent2 :buttons="buttons" />
   <div id="page-wrap">
-    <HeaderComponent :title="currentHeaderTitle"></HeaderComponent>
-    <SlidesComponent :slides="slides"></SlidesComponent>
-    <SectionTitleComponent :sections="sections"></SectionTitleComponent>
+    <HeaderComponent :title="currentHeaderTitle" />
+    <SlidesComponent :slides="slides" />
+    <SectionTitleComponent :sections="sections" />
+    <MateriaComplementarComponent />
+    <ButtonComponent />
+
   </div>
 </template>

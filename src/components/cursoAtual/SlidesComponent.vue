@@ -17,27 +17,29 @@ function showSlide(slideIndex) {
 </script>
 
 <template>
-    <div v-bind:id="`slide-${index}`" :class="`${index == 0 ? 'slide-visible' : 'slide-hidden'}`"
-        v-for="(slide, index) in props.slides">
-        <span id="page-number">{{ index + 1 }} / {{ props.slides.length }}</span>
-        <i><font-awesome-icon id="previous" icon="chevron-left" color="#ebe1e1" size="2x"
-                v-bind:onClick="() => showSlide(index - 1)"></font-awesome-icon></i>
-        <i><font-awesome-icon id="next" icon="chevron-right" color="#ebe1e1" size="2x"
-                v-bind:onClick="() => showSlide(index + 1)"></font-awesome-icon></i>
-        <img v-bind:src="slide">
+    <div class="slide-container">
+        <div v-bind:id="`slide-${index}`" :class="`${index == 0 ? 'slide-visible' : 'slide-hidden'}`"
+            v-for="(slide, index) in props.slides">
+            <span id="page-number">{{ index + 1 }} / {{ props.slides.length }}</span>
+            <i><font-awesome-icon id="previous" icon="chevron-left" color="#ebe1e1" size="2x"
+                    v-bind:onClick="() => showSlide(index - 1)"></font-awesome-icon></i>
+            <i><font-awesome-icon id="next" icon="chevron-right" color="#ebe1e1" size="2x"
+                    v-bind:onClick="() => showSlide(index + 1)"></font-awesome-icon></i>
+            <img v-bind:src="slide">
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/global.scss';
+@import '../../assets/global.scss';
 
 div {
     height: 60dvh;
-    width: 50dvw;
-    //margin: auto;
-    // margin-top: 10dvh;
-    //margin-bottom: 10dvh;
+    padding-top: 75px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slide-hidden {

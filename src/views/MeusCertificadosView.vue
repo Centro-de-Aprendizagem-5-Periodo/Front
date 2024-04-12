@@ -1,7 +1,7 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { useRoute } from 'vue-router';
-import NavBarComponent2 from '../components/NavBar/NavBarComponent2.vue';
+import NavBarComponent from '../components/navBar/NavbarComponent.vue';
 
 const buttons = [
     { title: 'Meus cursos', icon: 'graduation-cap', routeName: 'Meus Cursos' },
@@ -14,7 +14,7 @@ const currentHeaderTitle = route.name
 
 </script>
 <template>
-    <NavBarComponent2 :buttons="buttons" />
+    <NavBarComponent :buttons="buttons" />
 
     <div id="page-wrap">
         <HeaderComponent :title="currentHeaderTitle"></HeaderComponent>

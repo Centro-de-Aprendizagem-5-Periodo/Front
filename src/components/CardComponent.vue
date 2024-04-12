@@ -3,11 +3,19 @@ const defaultImg = "https://cdn.discordapp.com/attachments/1223646395375030412/1
 const props = defineProps(['title', 'imgSrc'])
 const imageValue = props.imgSrc
 const isExistsImg = !!imageValue;
+import { useRouter } from 'vue-router';
+
+var router = useRouter()
+
+function entrarTelaCurso() {
+    router.push({ path: '/curso-atual' })
+}
+
 </script>
 
 <template>
     <div>
-        <div id="card" :class="!isExistsImg ? 'adjust-img' : ''">
+        <div id="card" :class="!isExistsImg ? 'adjust-img' : ''" @click="entrarTelaCurso">
             <img :src="isExistsImg ? imageValue : defaultImg" :id="!isExistsImg ? 'defaultImg' : ''">
         </div>
         <div id="titleArea">
@@ -18,6 +26,7 @@ const isExistsImg = !!imageValue;
 
 <style lang="scss" scoped>
 @import '../assets/global.scss';
+
 img {
     width: 100%;
 }
@@ -38,6 +47,7 @@ p {
     width: 18vw;
     min-width: 220px;
     height: 180px;
+    cursor: pointer;
 }
 
 #titleArea {

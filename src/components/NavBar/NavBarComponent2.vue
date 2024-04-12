@@ -3,6 +3,7 @@ import ButtonComponent from './ButtonComponent.vue';
 import ProfileComponent from './ProfileComponent.vue';
 import ProgressBarComponent from './ProgressBarComponent.vue';
 import TitleNavBarComponent from './TitleNavBarComponent.vue';
+import SelectComponent from './SelectComponent.vue';
 
 import { useStore } from 'vuex';
 
@@ -34,8 +35,10 @@ function closeNavBar() {
         <ProgressBarComponent />
         <TitleNavBarComponent />
         <nav class="item-list">
-            <ButtonComponent v-for="button in buttons" :button-props="button" />
+            <SelectComponent />
         </nav>
+        <TitleNavBarComponent />
+
     </div>
 </template>
 
@@ -70,9 +73,9 @@ function closeNavBar() {
 }
 
 .item-list {
-    margin-top: 40px;
+    margin-top: 20px;
     width: 100%;
-    height: 200px;
+    height: 40px;
 }
 
 .icon {

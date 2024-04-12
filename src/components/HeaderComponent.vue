@@ -62,6 +62,7 @@ header {
 	height: 70px;
 	flex: 1;
 	position: fixed;
+	z-index: 999;
 }
 
 #container-title {
