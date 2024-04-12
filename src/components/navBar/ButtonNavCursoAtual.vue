@@ -6,9 +6,9 @@
         <div class="container">
             <i style="font-size:x-large"><font-awesome-icon class="icon" icon="square-check" color="#ebe1e1" /></i>
             <p>Aula 1: Processos</p>
-            <div class="hora">
+            <!-- <div class="hora">
                 <p>02:30</p>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

@@ -20,9 +20,17 @@ div {
 }
 
 button {
-    background-color: rgb(19, 239, 19);
+    background-color: rgb(39, 168, 89);
     display: flex;
     justify-content: end;
-    border-color: rgb(0, 255, 0);
+    border-color: rgb(39, 168, 89);
+    border: none;
+    cursor: pointer;
+}
+
+p {
+    color: white;
+    padding: 10px;
+    font-weight: bold;
 }
 </style>
