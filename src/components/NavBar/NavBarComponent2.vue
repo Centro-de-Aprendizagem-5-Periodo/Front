@@ -6,6 +6,7 @@ import TitleNavBarComponent from './TitleNavBarComponent.vue';
 import SelectComponent from './SelectComponent.vue';
 
 import { useStore } from 'vuex';
+import ButtonNavCursoAtual from './ButtonNavCursoAtual.vue';
 
 const store = useStore();
 
@@ -37,8 +38,8 @@ function closeNavBar() {
         <nav class="item-list">
             <SelectComponent />
         </nav>
-        <TitleNavBarComponent />
-
+        <!-- <TitleNavBarComponent /> -->
+        <ButtonNavCursoAtual />
     </div>
 </template>
 
