@@ -5,9 +5,9 @@
     <div class="materia-container">
         <div class='testinho'>
             <ul>
-                <li>Link1</li>
-                <li>Link2</li>
-                <li>Link3</li>
+                <li>"O que é o scrum?": <a href="url">https://www.atlassian.com/br/agile/scrum</a></li>
+                <li>"Scrum": <a href="url">https://youtu.be/3aCww_1RnL0</a></li>
+                <li>"Scrum Guide:" <a href="url"> https://www.scrum.org/resources/scrum-guide</a></li>
             </ul>
         </div>
     </div>
@@ -29,6 +29,10 @@
 
 ul {
     list-style-type: square;
+    margin-left: 50px;
+}
 
+ul li {
+  margin: 10px;
 }
 </style>

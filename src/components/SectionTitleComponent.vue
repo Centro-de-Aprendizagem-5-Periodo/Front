@@ -54,7 +54,6 @@ hr {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 105px
 }
 
 #cards {

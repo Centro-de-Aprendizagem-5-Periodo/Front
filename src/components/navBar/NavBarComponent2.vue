@@ -74,9 +74,7 @@ function closeNavBar() {
 }
 
 .item-list {
-    margin-top: 20px;
     width: 100%;
-    height: 40px;
 }
 
 .icon {

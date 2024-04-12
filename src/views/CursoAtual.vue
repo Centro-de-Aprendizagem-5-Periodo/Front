@@ -26,10 +26,20 @@ const currentHeaderTitle = route.name
   <NavbarComponent2 :buttons="buttons" />
   <div id="page-wrap">
     <HeaderComponent :title="currentHeaderTitle" />
-    <SlidesComponent :slides="slides" />
+    <div id="slide-position">
+      <SlidesComponent :slides="slides" />
+    </div>
     <SectionTitleComponent :sections="sections" />
     <MateriaComplementarComponent />
     <ButtonComponent />
 
   </div>
 </template>
+
+<style lang="scss" scoped>
+  #slide-position {
+    height: 60dvh;
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+</style>

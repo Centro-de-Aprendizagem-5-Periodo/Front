@@ -5,22 +5,18 @@
     <div class="check-quadrado">
         <div class="container">
             <i style="font-size:x-large"><font-awesome-icon class="icon" icon="square-check" color="#ebe1e1" /></i>
-            <p>Aula 1: Parte 1</p>
-        </div>
-        <div class="hora">
-            <p>00.00</p>
+            <p>Aula 1: Processos</p>
+            <div class="hora">
+                <p>02:30</p>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped>
 .check-quadrado {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2%;
     gap: 5px;
-    padding-left: 7px;
+    padding: 10px;
 }
 
 .container {
@@ -28,14 +24,27 @@
     align-items: center;
 }
 
+.icon {
+    margin-right: 7px;
+}
+
 .hora {
-    margin-left: auto;
+    border: 1px solid black;
+    margin-left: 30%;
+    align-items: center;
+    float: right;
+    background-color: #bcb7b7;
+}
+
+.hora p {
+    font-size: 13px;
+    color: #000;
+    padding: 2px;
 }
 
 p {
     color: #e3dada;
     font-family: Inter;
-    padding-left: 7px;
-    font-size: 18px;
+    font-size: 15px;
 }
 </style>

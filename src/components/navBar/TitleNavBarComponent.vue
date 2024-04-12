@@ -9,18 +9,19 @@
 </template>
 
 <style scoped>
+.main {
+    padding: 10px;
+}
+
 p {
     color: #e3dada;
     font-family: Inter;
-    padding-left: 7px;
     font-size: 18px;
 }
 
 .main {
     display: flex;
     align-items: center;
-    margin-top: 2%;
     gap: 5px;
-    padding-left: 7px;
 }
 </style>

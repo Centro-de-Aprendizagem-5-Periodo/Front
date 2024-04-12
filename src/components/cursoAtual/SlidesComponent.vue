@@ -34,12 +34,11 @@ function showSlide(slideIndex) {
 @import '../../assets/global.scss';
 
 div {
-    height: 60dvh;
-    padding-top: 75px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%
 }
 
 .slide-hidden {
