@@ -61,12 +61,12 @@ header {
 	display: flex;
 	height: 70px;
 	flex: 1;
-	position: fixed;
+	position: relative;
 	z-index: 999;
 }
 
 #container-title {
-	display: flex;
+		display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
