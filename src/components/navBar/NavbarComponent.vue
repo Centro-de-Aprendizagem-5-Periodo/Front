@@ -21,7 +21,7 @@ function closeNavBar() {
 <template>
 	<div id="nav-bar">
 		<div id="log-out">
-			<i><font-awesome-icon class="icon" icon="sign-out" color="#ebe1e1" size="2x" /></i>
+			<i><font-awesome-icon id="sign-out" class="icon" icon="sign-out" color="#ebe1e1" size="2x" /></i>
 			<ProfileComponent></ProfileComponent>
 			<i><font-awesome-icon class="icon" icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
 		</div>
@@ -33,6 +33,10 @@ function closeNavBar() {
 </template>
 
 <style scoped>
+#sign-out {
+	rotate: 180deg;
+}
+
 #nav-bar {
 	height: 100vh;
 	z-index: 1000;

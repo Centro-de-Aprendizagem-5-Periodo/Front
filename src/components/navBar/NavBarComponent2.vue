@@ -1,6 +1,4 @@
 <script setup>
-import ButtonComponent from './ButtonComponent.vue';
-import ProfileComponent from './ProfileComponent.vue';
 import ProgressBarComponent from './ProgressBarComponent.vue';
 import TitleNavBarComponent from './TitleNavBarComponent.vue';
 import SelectComponent from './SelectComponent.vue';
@@ -21,13 +19,21 @@ function closeNavBar() {
     store.dispatch('toggleNavbar');
 }
 
+import { useRouter } from 'vue-router';
+import ProfileComponent2 from './ProfileComponent2.vue';
+var router = useRouter()
+
+function entrarTelaInicial() {
+    router.push({ path: '/' })
+}
+
 </script>
 
 <template>
     <div id="nav-bar">
         <div id="log-out">
-            <i><font-awesome-icon class="icon" icon="sign-out" color="#ebe1e1" size="2x" /></i>
-            <ProfileComponent></ProfileComponent>
+            <i @click="entrarTelaInicial"><font-awesome-icon class="icon" icon="arrow-left" color="#ebe1e1" size="2x" /></i>
+            <ProfileComponent2></ProfileComponent2>
             <i><font-awesome-icon class="icon" icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
         </div>
         <div class="nome-curso-div">

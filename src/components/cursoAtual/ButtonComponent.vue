@@ -1,8 +1,14 @@
 <script setup>
+import { useRouter } from 'vue-router';
+var router = useRouter()
+
+function entrarTelaInicial() {
+    router.push({ path: '/' })
+}
 </script>
 <template>
     <div class="pai-button">
-        <button>
+        <button @click="entrarTelaInicial">
             <span>
                 <p>ATIVIDADE CONCLUIDA</p>
             </span>

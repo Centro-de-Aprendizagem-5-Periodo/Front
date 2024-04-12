@@ -82,5 +82,6 @@ header {
 	padding-left: 5px;
 	display: none;
 	align-items: center;
+	cursor: pointer;
 }
 </style>

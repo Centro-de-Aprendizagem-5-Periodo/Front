@@ -1,5 +1,5 @@
 <script setup>
-var progress = 80;
+var progress = 100;
 </script>
 
 <template>

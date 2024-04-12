@@ -18,10 +18,11 @@ import {
     faChevronRight,
     faChevronLeft,
     faStar,
-    faSquareCheck
+    faSquareCheck,
+    faArrowLeft
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPhone, faBars, faTimes, faSignOut, faPencil, faGraduationCap, faScroll, faBook, faPlay, faChevronRight, faChevronLeft, faStar, faSquareCheck)
+library.add(faPhone, faBars, faTimes, faSignOut, faPencil, faGraduationCap, faScroll, faBook, faPlay, faChevronRight, faChevronLeft, faStar, faSquareCheck, faArrowLeft)
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).use(router).use(store).mount("#app");
 
