@@ -1,14 +1,15 @@
 <script setup>
 import { ref } from 'vue';
+import { useStore } from 'vuex';
 
+const store = useStore();
 const editingName = ref(false);
-const name = ref('Nome');
-const newName = ref('');
+const name = ref(store.state.nameChanged);
 
 function toggleEdit() {
     editingName.value = !editingName.value;
     if (!editingName.value) {
-        name.value = newName.value;
+        store.dispatch('modifyName', name.value);
     }
 }
 
@@ -27,7 +28,7 @@ function handleEnter(event) {
             {{ name }}
             <font-awesome-icon id="icon" :icon="['fas', 'pencil']" style="color: #ffffff;" @click="toggleEdit" />
         </p>
-        <input v-else v-model="newName" @keyup.enter="handleEnter">
+        <input v-else v-model="name" @keyup.enter="handleEnter">
     </div>
 </template>
 

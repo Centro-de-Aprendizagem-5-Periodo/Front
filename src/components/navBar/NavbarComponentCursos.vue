@@ -2,11 +2,12 @@
 import ProgressBarComponent from './ProgressBarComponent.vue';
 import TitleNavBarComponent from './TitleNavBarComponent.vue';
 import SelectComponent from './SelectComponent.vue';
-
-import { useStore } from 'vuex';
 import ButtonNavCursoAtual from './ButtonNavCursoAtual.vue';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 const store = useStore();
+const router = useRouter();
 
 const props = defineProps({
     buttons: Array
@@ -19,10 +20,6 @@ function closeNavBar() {
     store.dispatch('toggleNavbar');
 }
 
-import { useRouter } from 'vue-router';
-import ProfileComponent2 from './ProfileComponent2.vue';
-var router = useRouter()
-
 function entrarTelaInicial() {
     router.push({ path: '/' })
 }
@@ -33,23 +30,29 @@ function entrarTelaInicial() {
     <div id="nav-bar">
         <div id="log-out">
             <i @click="entrarTelaInicial"><font-awesome-icon class="icon" icon="arrow-left" color="#ebe1e1" size="2x" /></i>
-            <ProfileComponent2></ProfileComponent2>
+            <div id="profile">
+                <img id="course-img" src="https://www.kindpng.com/picc/m/53-539760_scrum-logo-hd-png-download.png">
+            </div>
             <i><font-awesome-icon class="icon" icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
         </div>
         <div class="nome-curso-div">
             <p id="nome-curso">Fundamentos do Scrum</p> <!-- TODO: passar por parametro -->
         </div>
-        <ProgressBarComponent />
-        <TitleNavBarComponent />
+        <div id="progress-container">
+            <ProgressBarComponent />
+        </div>
+        <TitleNavBarComponent title="Aula atual"/>
         <nav class="item-list">
             <SelectComponent />
         </nav>
-        <!-- <TitleNavBarComponent /> -->
-        <ButtonNavCursoAtual />
+        <TitleNavBarComponent title="Módulos"/>
+        <ButtonNavCursoAtual title="Aula 1: Processos"/>
     </div>
 </template>
 
 <style scoped>
+@import '../../assets//global.scss';
+
 .nome-curso-div {
     display: flex;
     justify-content: center;
@@ -58,10 +61,33 @@ function entrarTelaInicial() {
     margin-bottom: 10px;
 }
 
+#profile {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    margin-top: 50px;
+    gap: 10px;
+}
+
+#course-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+#progress-container {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    font-family: Inter;
+    color: #e3dada;
+}
+
 #nome-curso {
     color: #e3dada;
     font-family: Inter;
-    margin-left: 4%;
     font-size: 18px;
 }
 
