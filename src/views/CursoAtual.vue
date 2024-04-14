@@ -16,7 +16,6 @@ const slides = [
   "https://cdn.sketchbubble.com/pub/media/catalog/product/cache/1/image/720x540/c96a280f94e22e3ee3823dd0a1a87606/s/c/scrum-process-slide7_2.png"
 ];
 
-const sections = ["Materiais complementares:"];
 const route = useRoute();
 const currentHeaderTitle = route.name
 
@@ -29,7 +28,7 @@ const currentHeaderTitle = route.name
     <div id="slide-position">
       <SlidesComponent :slides="slides" />
     </div>
-    <SectionTitleComponent :sections="sections" />
+    <SectionTitleComponent :title="'Materiais complementares:'" />
     <MateriaComplementarComponent />
     <ButtonComponent />
 
