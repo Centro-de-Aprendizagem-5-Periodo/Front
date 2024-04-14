@@ -1,9 +1,11 @@
 <script setup>
 const defaultImg = "https://cdn.discordapp.com/attachments/1223646395375030412/1225972264135294977/imagem.png?ex=662312a5&is=66109da5&hm=9505840cfec35a1149ec841f0fc759749db80f59038fdeb719f2bf6a09150ec5&"
 const scrum = "https://www.inesdi.com/sites/default/files/inline-images/531x354xmetodologia,P20scrum,P202.jpg.pagespeed.ic.FVz7Rkz-by.jpg"
-const props = defineProps(['title', 'imgSrc'])
-const imageValue = props.imgSrc
-const isExistsImg = props.title == "Fundamentos do Scrum";
+const props = defineProps({
+    course: Object
+})
+const imageValue = props.course.image
+const isExistsImg = props.course.title == "Fundamentos do Scrum";
 // const isExistsImg = !!imageValue;
 import { useRouter } from 'vue-router';
 
@@ -21,7 +23,7 @@ function entrarTelaCurso() {
             <img :src="isExistsImg ? scrum : defaultImg" :id="!isExistsImg ? 'defaultImg' : ''">
         </div>
         <div id="titleArea">
-            <p>{{ props.title }}</p>
+            <p>{{ props.course.title }}</p>
         </div>
     </div>
 </template>

@@ -1,34 +1,34 @@
 <script setup>
-import { useRouter } from 'vue-router';
-import CardComponent from './CardComponent.vue';
-
-const router = useRouter()
-const meta = router.currentRoute.value.meta
-const sections = meta.sections
 
 const props = defineProps({
-    sections: Array
+    title: String
 });
 
 </script>
+
 <template>
-    <section v-for="(section) in props.sections || sections" id="section-container">
+    
+    <div id="section-container">
         <div id="section-content">
             <hr />
             <div id="content-items">
                 <font-awesome-icon id="icon" icon="play" size="2x" />
-                <p> {{ section.title || section }} </p>
+                <p> {{ title }} </p>
             </div>
             <hr />
         </div>
-        <!-- Nao faz parte do escopo do componente section title. Mover CardComponent para a view onde será usada-->
-        <div id="cards">
-            <CardComponent v-for="(course) in section.courses" id="course-card" :title="course.courseTitle" />
-        </div>
-    </section>
+    </div>
+
 </template>
+
 <style lang="scss" scoped>
 @import '../assets/global.scss';
+
+#section-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
 p {
     font-family: $font-style;
@@ -50,23 +50,10 @@ hr {
     display: block;
 }
 
-#section-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-#cards {
-    display: grid;
-    margin-top: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 25px;
-}
-
 #content-items {
     display: flex;
     align-items: center;
-    gap: 10px
+    gap: 10px;
 }
 
 #course-card {
@@ -88,4 +75,5 @@ hr {
         row-gap: 20px
     }
 }
+
 </style>
