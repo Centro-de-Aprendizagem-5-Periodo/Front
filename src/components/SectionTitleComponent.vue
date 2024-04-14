@@ -59,6 +59,7 @@ hr {
 #cards {
     display: grid;
     margin-top: 20px;
+    margin-bottom: 20px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 25px;
 }

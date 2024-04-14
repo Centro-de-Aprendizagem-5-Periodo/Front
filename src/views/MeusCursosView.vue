@@ -1,8 +1,8 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
 import NavbarComponent from '../components/navBar/NavbarComponent.vue';
-import { useRoute } from 'vue-router';
 import SectionTitleComponent from '../components/SectionTitleComponent.vue';
+import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const currentHeaderTitle = route.name

@@ -1,17 +1,26 @@
 <script setup>
+import { ref } from 'vue';
+
+let selected = ref('Aula 1');
+
+function print () {
+    console.log("teste: " + selected.value)
+}
 </script>
 
 <template>
     <div>
-        <select v-model="selected">
-            <option value="1">Aula 1</option>
-            <option value="2">Aula 2</option>
-            <option value="3">Aula 3</option>
+        <select v-model="selected" :onselect="print()">
+            <option>Aula 1</option>
+            <option>Aula 2</option>
+            <option>Aula 3</option>
         </select>
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../../assets/global.scss';
+
 div {
     display: flex;
     align-items: center;
@@ -20,10 +29,14 @@ div {
 }
 
 select {
-    background-color: #242426;
+    background-color: $dark-gray;
+    font-family: Inter;
     color: antiquewhite;
-    border-color: black;
-    width: 100%;
-    height: 25px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 82%;
+    height: 40px;
+    padding: 10px;
 }
 </style>

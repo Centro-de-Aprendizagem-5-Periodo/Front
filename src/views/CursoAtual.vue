@@ -1,6 +1,6 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
-import NavbarComponent2 from '../components/navBar/NavBarComponent2.vue';
+import NavbarComponentCursos from '../components/navBar/NavbarComponentCursos.vue';
 import SectionTitleComponent from '../components/SectionTitleComponent.vue';
 import SlidesComponent from '../components/cursoAtual/SlidesComponent.vue';
 import MateriaComplementarComponent from '../components/cursoAtual/MateriaComplementarComponent.vue';
@@ -23,7 +23,7 @@ const currentHeaderTitle = route.name
 </script>
 
 <template>
-  <NavbarComponent2 :buttons="buttons" />
+  <NavbarComponentCursos :buttons="buttons" />
   <div id="page-wrap">
     <HeaderComponent :title="currentHeaderTitle" />
     <div id="slide-position">
