@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
-import CursoAtual from "../views/CursoAtual.vue"
 import MeusCursosView from "../views/MeusCursosView.vue"
 import MeusCertificadosView from "../views/MeusCertificadosView.vue"
 import TodosOsCursosView from "../views/TodosOsCursosView.vue"
+import LoginView from "../views/LoginView.vue";
+import CursoAtualView from "../views/CursoAtualView.vue";
 
 const routes = [
   {
@@ -18,12 +19,17 @@ const routes = [
   {
     path: "/curso-atual",
     name: "Fundamentos do Scrum",
-    component: CursoAtual
+    component: CursoAtualView
   },
   {
     path: "/cursos",
     name: "Todos Cursos",
     component: TodosOsCursosView
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: LoginView
   }
 ];
 

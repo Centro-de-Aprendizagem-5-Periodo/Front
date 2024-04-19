@@ -16,7 +16,7 @@ var progress = 100;
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets//global.scss';
+@import '../../../assets//global.scss';
 
 .progress-bar {
     width: 82%;

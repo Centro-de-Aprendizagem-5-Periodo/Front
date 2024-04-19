@@ -19,7 +19,7 @@ function print () {
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/global.scss';
+@import '../../../assets/global.scss';
 
 div {
     display: flex;

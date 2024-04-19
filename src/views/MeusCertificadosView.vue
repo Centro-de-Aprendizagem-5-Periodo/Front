@@ -1,7 +1,7 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { useRoute } from 'vue-router';
-import NavbarComponent from '../components/navBar/NavbarComponent.vue';
+import NavbarComponent from '../components/navBar/profileNavbar/ProfileNavbarComponent.vue';
 
 const buttons = [
     { title: 'Meus cursos', icon: 'graduation-cap', routeName: 'Meus Cursos' },

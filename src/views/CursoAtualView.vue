@@ -1,6 +1,6 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
-import NavbarComponentCursos from '../components/navBar/NavbarComponentCursos.vue';
+import NavbarComponentCursos from '../components/navBar/courseNavbar/CourseNavbarComponent.vue';
 import SectionTitleComponent from '../components/SectionTitleComponent.vue';
 import SlidesComponent from '../components/cursoAtual/SlidesComponent.vue';
 import MateriaComplementarComponent from '../components/cursoAtual/MateriaComplementarComponent.vue';

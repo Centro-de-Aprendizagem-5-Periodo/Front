@@ -1,7 +1,7 @@
 <script setup>
 
 import HeaderComponent from '../components/HeaderComponent.vue';
-import NavbarComponent from '../components/navBar/NavbarComponent.vue';
+import NavbarComponent from '../components/navBar/profileNavbar/ProfileNavbarComponent.vue';
 import { useRoute } from 'vue-router';
 import CardsSectionComponent from '../components/CardsSectionComponent.vue';
 

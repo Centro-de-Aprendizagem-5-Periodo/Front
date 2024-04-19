@@ -1,8 +1,8 @@
 <script setup>
 import ProgressBarComponent from './ProgressBarComponent.vue';
-import TitleNavBarComponent from './TitleNavBarComponent.vue';
+import TitleNavBarComponent from './TitleComponent.vue';
 import SelectComponent from './SelectComponent.vue';
-import ButtonNavCursoAtual from './ButtonNavCursoAtual.vue';
+import ActivityButtonComponent from './ActivityButtonComponent.vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
@@ -46,12 +46,12 @@ function entrarTelaInicial() {
             <SelectComponent />
         </nav>
         <TitleNavBarComponent title="Módulos"/>
-        <ButtonNavCursoAtual title="Aula 1: Processos"/>
+        <ActivityButtonComponent title="Aula 1: Processos"/>
     </div>
 </template>
 
 <style scoped>
-@import '../../assets//global.scss';
+@import '../../../assets//global.scss';
 
 .nome-curso-div {
     display: flex;

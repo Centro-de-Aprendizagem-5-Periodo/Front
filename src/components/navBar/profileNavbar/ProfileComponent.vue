@@ -33,7 +33,7 @@ function handleEnter(event) {
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets//global.scss';
+@import '../../../assets//global.scss';
 
 #profile {
     display: grid;

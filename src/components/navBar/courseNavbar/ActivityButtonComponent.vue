@@ -15,7 +15,7 @@ const props = defineProps(['title']);
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/global.scss';
+@import '../../../assets/global.scss';
 
 #box-completed {
     width: 25px;

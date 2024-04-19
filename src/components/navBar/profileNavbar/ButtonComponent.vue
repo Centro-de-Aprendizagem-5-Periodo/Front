@@ -26,7 +26,7 @@ function isSelectedButton(button) {
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets//global.scss';
+@import '../../../assets/global.scss';
 
 button {
     display: flex;

@@ -10,7 +10,7 @@ const props = defineProps(['title'])
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/global.scss';
+@import '../../../assets/global.scss';
 
 .main {
     padding: 35px 35px 10px 35px;
