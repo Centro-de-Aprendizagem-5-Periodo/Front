@@ -14,6 +14,7 @@ function closeNavBar() {
 	document.querySelector('#hamburguinho').style.display = 'flex';
 	document.querySelector('#page-wrap').style.paddingLeft = '0';
 	store.dispatch('toggleNavbar');
+	emit('navbarClosed');
 }
 
 </script>

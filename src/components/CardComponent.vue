@@ -22,7 +22,7 @@ function entrarTelaCurso() {
         <div id="card" :class="!isExistsImg ? 'adjust-img' : ''" @click="entrarTelaCurso">
             <img :src="isExistsImg ? scrum : defaultImg" :id="!isExistsImg ? 'defaultImg' : ''">
         </div>
-        <div id="titleArea">
+        <div id="titleArea" @click="entrarTelaCurso">
             <p>{{ props.course.title }}</p>
         </div>
     </div>
@@ -65,6 +65,7 @@ p {
     width: 18vw;
     min-width: 220px;
     height: 40px;
+    cursor: pointer;
 }
 
 #defaultImg {
