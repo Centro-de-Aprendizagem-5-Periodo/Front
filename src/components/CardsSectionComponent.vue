@@ -35,5 +35,4 @@ const props = defineProps({
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 25px;
 }
-
 </style>

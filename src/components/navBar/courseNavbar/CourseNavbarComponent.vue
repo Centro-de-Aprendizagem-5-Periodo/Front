@@ -24,17 +24,13 @@ function entrarTelaInicial() {
     router.push({ path: '/' })
 }
 
-function deslogar() {
-    router.push({ path: '/login' })
-}
-
 </script>
 
 <template>
     <div id="nav-bar">
-        <div id="log-out" @click="deslogar">
-            <i @click="entrarTelaInicial"><font-awesome-icon class="icon" icon="arrow-left" color="#ebe1e1"
-                    size="2x" /></i>
+        <div id="log-out">
+            <i><font-awesome-icon class="icon" icon="arrow-left" color="#ebe1e1"
+                    size="2x" @click="entrarTelaInicial" /></i>
             <div id="profile">
                 <img id="course-img" src="https://www.kindpng.com/picc/m/53-539760_scrum-logo-hd-png-download.png">
             </div>
@@ -117,5 +113,9 @@ p {
 .icon {
     padding: 5px;
     cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.1);
 }
 </style>

@@ -52,6 +52,7 @@ p {
     min-width: 220px;
     height: 180px;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 #titleArea {
@@ -66,6 +67,11 @@ p {
     min-width: 220px;
     height: 40px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+#card:hover, #titleArea:hover, #card:hover + #titleArea, #card:has(+ #titleArea:hover) {
+    transform: scale(1.1);
 }
 
 #defaultImg {

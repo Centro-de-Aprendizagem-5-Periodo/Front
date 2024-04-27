@@ -32,6 +32,12 @@ button {
     border-color: rgb(39, 168, 89);
     border: none;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: rgb(39, 138, 69);
 }
 
 p {

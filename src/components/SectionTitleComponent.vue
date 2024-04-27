@@ -75,5 +75,4 @@ hr {
         row-gap: 20px
     }
 }
-
 </style>

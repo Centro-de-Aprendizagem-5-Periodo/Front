@@ -59,6 +59,10 @@ p {
     cursor: pointer;
 }
 
+#icon:hover {
+    transform: scale(1.1);
+}
+
 input {
     font-family: $font-style;
     color: #e3dada;

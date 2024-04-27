@@ -38,5 +38,16 @@ select {
     width: 82%;
     height: 40px;
     padding: 10px;
+    transition: 0.5s;
+}
+
+select option {
+    background-color: $dark-gray;
+    font-family: Inter;
+    color: antiquewhite;
+}
+
+select:hover {
+    background-color: grey;
 }
 </style>

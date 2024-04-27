@@ -39,6 +39,11 @@ button {
     text-align: start;
     background-color: transparent;
     border: none;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: gray;
 }
 
 div {

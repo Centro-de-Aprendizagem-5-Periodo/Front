@@ -52,5 +52,4 @@ p {
     font-family: $font-style;
     font-size: 15px;
 }
-
 </style>

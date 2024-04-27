@@ -73,6 +73,12 @@ input {
     border-radius: 3px;
     border: none;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+#entrar:hover {
+    transform: scale(1.1);
+    background-color: #096a67;
 }
 
 #container-form-input {

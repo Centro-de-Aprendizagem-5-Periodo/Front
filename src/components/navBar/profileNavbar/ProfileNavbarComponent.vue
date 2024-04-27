@@ -26,8 +26,8 @@ function deslogar() {
 
 <template>
 	<div id="nav-bar">
-		<div id="log-out" @click="deslogar">
-			<i><font-awesome-icon id="sign-out" class="icon" icon="sign-out" color="#ebe1e1" size="2x" /></i>
+		<div id="log-out">
+			<i><font-awesome-icon id="sign-out" class="icon" icon="sign-out" color="#ebe1e1" size="2x" @click="deslogar"/></i>
 			<ProfileComponent></ProfileComponent>
 			<i><font-awesome-icon class="icon" icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
 		</div>
@@ -66,5 +66,9 @@ function deslogar() {
 .icon {
 	padding: 5px;
 	cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.1);
 }
 </style>
