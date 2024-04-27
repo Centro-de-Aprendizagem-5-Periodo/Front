@@ -24,12 +24,17 @@ function entrarTelaInicial() {
     router.push({ path: '/' })
 }
 
+function deslogar() {
+    router.push({ path: '/login' })
+}
+
 </script>
 
 <template>
     <div id="nav-bar">
-        <div id="log-out">
-            <i @click="entrarTelaInicial"><font-awesome-icon class="icon" icon="arrow-left" color="#ebe1e1" size="2x" /></i>
+        <div id="log-out" @click="deslogar">
+            <i @click="entrarTelaInicial"><font-awesome-icon class="icon" icon="arrow-left" color="#ebe1e1"
+                    size="2x" /></i>
             <div id="profile">
                 <img id="course-img" src="https://www.kindpng.com/picc/m/53-539760_scrum-logo-hd-png-download.png">
             </div>
@@ -41,12 +46,12 @@ function entrarTelaInicial() {
         <div id="progress-container">
             <ProgressBarComponent />
         </div>
-        <TitleNavBarComponent title="Aula atual"/>
+        <TitleNavBarComponent title="Aula atual" />
         <nav class="item-list">
             <SelectComponent />
         </nav>
-        <TitleNavBarComponent title="Módulos"/>
-        <ActivityButtonComponent title="Aula 1: Processos"/>
+        <TitleNavBarComponent title="Módulos" />
+        <ActivityButtonComponent title="Aula 1: Processos" />
     </div>
 </template>
 

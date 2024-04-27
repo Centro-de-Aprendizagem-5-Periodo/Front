@@ -2,7 +2,9 @@
 import ButtonComponent from './ButtonComponent.vue';
 import ProfileComponent from './ProfileComponent.vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const store = useStore();
 
 const props = defineProps({
@@ -16,11 +18,15 @@ function closeNavBar() {
 	store.dispatch('toggleNavbar');
 }
 
+function deslogar() {
+	router.push({ path: '/login' })
+}
+
 </script>
 
 <template>
 	<div id="nav-bar">
-		<div id="log-out">
+		<div id="log-out" @click="deslogar">
 			<i><font-awesome-icon id="sign-out" class="icon" icon="sign-out" color="#ebe1e1" size="2x" /></i>
 			<ProfileComponent></ProfileComponent>
 			<i><font-awesome-icon class="icon" icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
