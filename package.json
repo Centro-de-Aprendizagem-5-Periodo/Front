@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.6",
+    "primevue": "^3.52.0",
     "vue": "^3.4.19",
     "vue-burger-menu": "^2.0.5",
     "vue-router": "^4.3.0",
