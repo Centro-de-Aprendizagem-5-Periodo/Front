@@ -17,8 +17,8 @@ const routes = [
     component: MeusCertificadosView
   },
   {
-    path: "/curso-atual",
-    name: "Fundamentos do Scrum",
+    path: "/curso-atual/:curso/:modulo",
+    name: "Curso Atual",
     component: CursoAtualView
   },
   {

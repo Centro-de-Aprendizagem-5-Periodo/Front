@@ -1,5 +1,5 @@
 <script setup>
-const defaultImg = "https://cdn.discordapp.com/attachments/1223646395375030412/1225972264135294977/imagem.png?ex=662312a5&is=66109da5&hm=9505840cfec35a1149ec841f0fc759749db80f59038fdeb719f2bf6a09150ec5&"
+const defaultImg = "https://i.imgur.com/T8Kig8u.png"
 const scrum = "https://www.inesdi.com/sites/default/files/inline-images/531x354xmetodologia,P20scrum,P202.jpg.pagespeed.ic.FVz7Rkz-by.jpg"
 const props = defineProps({
     course: Object
@@ -11,15 +11,16 @@ import { useRouter } from 'vue-router';
 
 var router = useRouter()
 
-function entrarTelaCurso() {
-    router.push({ path: '/curso-atual' })
+function entrarTelaCurso(courseName) {
+    courseName = courseName.replaceAll(" ", "-")
+    router.push({ path: `/curso-atual/${courseName}/1` })
 }
 
 </script>
 
 <template>
     <div>
-        <div id="card" :class="!isExistsImg ? 'adjust-img' : ''" @click="entrarTelaCurso">
+        <div id="card" :class="!isExistsImg ? 'adjust-img' : ''" @click="entrarTelaCurso(props.course.title)">
             <img :src="isExistsImg ? scrum : defaultImg" :id="!isExistsImg ? 'defaultImg' : ''">
         </div>
         <div id="titleArea" @click="entrarTelaCurso">
@@ -72,10 +73,5 @@ p {
 
 #card:hover, #titleArea:hover, #card:hover + #titleArea, #card:has(+ #titleArea:hover) {
     transform: scale(1.1);
-}
-
-#defaultImg {
-    width: 128px;
-    height: 128px;
 }
 </style>
