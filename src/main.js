@@ -6,23 +6,28 @@ import store from './store';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
-    faPhone,
-    faBars,
-    faTimes,
-    faSignOut,
-    faPencil,
-    faGraduationCap,
-    faScroll,
-    faBook,
-    faPlay,
-    faChevronRight,
-    faChevronLeft,
-    faStar,
-    faSquareCheck,
-    faArrowLeft
+	faPhone,
+	faBars,
+	faTimes,
+	faSignOut,
+	faPencil,
+	faGraduationCap,
+	faScroll,
+	faBook,
+	faPlay,
+	faChevronRight,
+	faChevronLeft,
+	faStar,
+	faSquareCheck,
+	faArrowLeft
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faPhone, faBars, faTimes, faSignOut, faPencil, faGraduationCap, faScroll, faBook, faPlay, faChevronRight, faChevronLeft, faStar, faSquareCheck, faArrowLeft)
-
-createApp(App).component("font-awesome-icon", FontAwesomeIcon).use(router).use(store).mount("#app");
+import PrimeVue from 'primevue/config';
+createApp(App)
+	.component("font-awesome-icon", FontAwesomeIcon)
+	.use(PrimeVue)
+	.use(router)
+	.use(store)
+	.mount("#app");
 
