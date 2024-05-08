@@ -19,7 +19,8 @@ import {
 	faChevronLeft,
 	faStar,
 	faSquareCheck,
-	faArrowLeft
+	faArrowLeft,
+	faCheck
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faPhone, faBars, faTimes, faSignOut, faPencil, faGraduationCap, faScroll, faBook, faPlay, faChevronRight, faChevronLeft, faStar, faSquareCheck, faArrowLeft)
@@ -30,4 +31,8 @@ createApp(App)
 	.use(router)
 	.use(store)
 	.mount("#app");
+
+library.add(faPhone, faBars, faTimes, faSignOut, faPencil, faGraduationCap, faScroll, faBook, faPlay, faChevronRight, faChevronLeft, faStar, faSquareCheck, faArrowLeft, faCheck)
+
+createApp(App).component("font-awesome-icon", FontAwesomeIcon).use(router).use(store).mount("#app");
 

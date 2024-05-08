@@ -47,7 +47,8 @@ function entrarTelaInicial() {
             <SelectComponent />
         </nav>
         <TitleNavBarComponent title="Módulos" />
-        <ActivityButtonComponent title="Aula 1: Processos" />
+        <ActivityButtonComponent title="Aula 1: Processos" time="02:00" completed/>
+
     </div>
 </template>
 
