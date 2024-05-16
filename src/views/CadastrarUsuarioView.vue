@@ -2,7 +2,6 @@
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { useRoute } from 'vue-router';
 import NavbarComponent from '../components/navBar/profileNavbar/ProfileNavbarComponent.vue';
-import Password from 'primevue/password';
 
 const buttons = [
 	{ title: 'Meus cursos', icon: 'graduation-cap', routeName: 'Meus Cursos' },
@@ -19,47 +18,47 @@ const currentHeaderTitle = route.name
 	<div id="page-wrap">
 		<HeaderComponent :title="currentHeaderTitle"></HeaderComponent>
 		<div id="container">
-			<div id="input-login" class="input">
-				<label class="label-cadastro">Login (Email)</label class="label-cadastro">
-				<input>
+			<div id="input-login" class="inputContainer">
+				<label for="campo-email">Login (Email)</label>
+    			<input type="text" id="campo-email">
 			</div>
-			<div id="input-senha" class="input">
-				<label class="label-cadastro"> Senha</label class="label-cadastro">
-				<Password v-model="value" :feedback="false" />
+			<div id="input-senha" class="inputContainer">
+				<label for="campo-senha">Senha</label>
+				<input type="password" id="campo-senha">
 			</div>
-			<div id="input-nome" class="input">
-				<label class="label-cadastro"> Nome</label class="label-cadastro">
-				<input>
+			<div id="input-nome" class="inputContainer">
+				<label for="campo-nome">Nome</label>
+				<input type="text" id="campo-nome">
 			</div>
-			<div id="input-data-nascimento" class="input">
-				<label class="label-cadastro"> Data de Nascimento</label class="label-cadastro">
-				<input>
+			<div id="input-data-nascimento" class="inputContainer">
+				<label for="campo-data">Data de Nascimento</label>
+				<input type="date" id="campo-data">
 			</div>
-			<div id="input-identidade" class="input">
-				<label class="label-cadastro">Nº de Identificação</label class="label-cadastro">
-				<input>
+			<div id="input-identidade" class="inputContainer">
+				<label for="campo-ident">Nº de Identificação</label>
+				<input type="text" id="campo-ident">
 			</div>
 
 			<div id="endereco">
-				<div id="input-rua" class="input">
-					<label class="label-cadastro">Rua</label class="label-cadastro">
-					<input>
+				<div id="input-rua" class="inputContainer">
+					<label for="campo-rua">Rua</label>
+					<input type="text" id="campo-rua">
 				</div>
-				<div id="input-bairro" class="input">
-					<label class="label-cadastro">Bairro</label class="label-cadastro">
-					<input>
+				<div id="input-bairro" class="inputContainer">
+					<label for="campo-bairro">Bairro</label>
+					<input type="text" id="campo-bairro">
 				</div>
-				<div id="input-cep" class="input">
-					<label class="label-cadastro">CEP</label class="label-cadastro">
-					<input>
+				<div id="input-cep" class="inputContainer">
+					<label for="campo-cep">Cep</label>
+					<input type="text" id="campo-cep">
 				</div>
-				<div input="cidade" class="input">
-					<label class="label-cadastro">Cidade</label class="label-cadastro">
-					<input>
+				<div input="cidade" class="inputContainer">
+					<label for="campo-cidade">Cidade</label>
+					<input type="text" id="campo-cidade">
 				</div>
-				<div id="input-uf" class="input">
-					<label class="label-cadastro">UF</label class="label-cadastro">
-					<input>
+				<div id="input-uf" class="inputContainer">
+					<label for="campo-uf">Uf</label>
+					<input type="text" id="campo-uf">
 				</div>
 			</div>
 
@@ -67,40 +66,34 @@ const currentHeaderTitle = route.name
 	</div>
 </template>
 
-<style lang="scss">
-.label-cadastro {
+<style lang="scss" scoped>
+
+label {
 	display: flex;
-	font-weight: bold;
-	margin-bottom: 10px;
+	margin-bottom: 3px;
 }
 
-#endereco {
-	width: 100%;
+.inputContainer {
+	margin-bottom: 10px;
 }
 
 input {
-	width: 80%;
-	margin-bottom: 10px;
-	height: 20px;
-	background-color: #e6e6e6;
-	border: 0;
-	border-radius: 2px;
-}
-
-.input {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	margin-bottom: 10px;
-	width: 100%;
+	outline: none;
+	border: 1px solid #969696;
+	background-color: #D9D9D9;
+	border-radius: 0%;
+	height: 30px;
+	width: 700px;
+	margin-bottom: 5px;
 }
 
 #container {
-	width: 100%;
-	border-radius: 10px;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	flex-direction: column;
-	margin-inline: 8%;
-	padding-top: 20px;
+	padding-top: 100px;
 }
+
+
 </style>

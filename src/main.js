@@ -24,15 +24,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faPhone, faBars, faTimes, faSignOut, faPencil, faGraduationCap, faScroll, faBook, faPlay, faChevronRight, faChevronLeft, faStar, faSquareCheck, faArrowLeft)
-import PrimeVue from 'primevue/config';
+
 createApp(App)
 	.component("font-awesome-icon", FontAwesomeIcon)
-	.use(PrimeVue)
 	.use(router)
 	.use(store)
 	.mount("#app");
 
-library.add(faPhone, faBars, faTimes, faSignOut, faPencil, faGraduationCap, faScroll, faBook, faPlay, faChevronRight, faChevronLeft, faStar, faSquareCheck, faArrowLeft, faCheck)
 
-createApp(App).component("font-awesome-icon", FontAwesomeIcon).use(router).use(store).mount("#app");
 

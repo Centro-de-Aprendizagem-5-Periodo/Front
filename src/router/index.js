@@ -4,7 +4,7 @@ import MeusCertificadosView from "../views/MeusCertificadosView.vue"
 import TodosOsCursosView from "../views/TodosOsCursosView.vue"
 import LoginView from "../views/LoginView.vue";
 import CursoAtualView from "../views/CursoAtualView.vue";
-import CadastrarUsurioView from "../views/CadastrarUsuarioView.vue"
+import CadastrarUsuarioView from "../views/CadastrarUsuarioView.vue"
 
 const routes = [
   {
@@ -33,9 +33,9 @@ const routes = [
     component: LoginView
   },
   {
-    path: "/cadastrar",
-    name: "Cadastrar",
-    component: CadastrarUsurioView
+    path: "/editar",
+    name: "Editar",
+    component: CadastrarUsuarioView
   }
 ];
 
