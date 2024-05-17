@@ -4,7 +4,7 @@ import MeusCertificadosView from "../views/MeusCertificadosView.vue"
 import TodosOsCursosView from "../views/TodosOsCursosView.vue"
 import LoginView from "../views/LoginView.vue";
 import CursoAtualView from "../views/CursoAtualView.vue";
-import CadastrarUsuarioView from "../views/CadastrarUsuarioView.vue"
+import EditarUsuarioView from "../views/EditarUsuarioView.vue"
 
 const routes = [
   {
@@ -34,11 +34,11 @@ const routes = [
   },
   {
     path: "/editar",
-    name: "Editar",
-    component: CadastrarUsuarioView
+    name: "Editar Usuário",
+    component: EditarUsuarioView
   }
 ];
-
+666
 const router = createRouter({
   history: createWebHistory(),
   routes,

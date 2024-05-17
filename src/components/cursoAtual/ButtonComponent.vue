@@ -43,6 +43,7 @@ button:hover {
 p {
     color: white;
     padding: 10px;
+    font-family: Inter;
     font-weight: bold;
 }
 </style>

@@ -39,9 +39,11 @@ function logar() {
 </template>
 
 <style lang="scss" scoped>
+
 p,
 label {
-    font-weight: bold
+    font-family: Inter;
+    font-weight: bold;
 }
 
 p {
@@ -73,6 +75,8 @@ input {
     border-radius: 3px;
     border: none;
     cursor: pointer;
+    font-family: Inter;
+    font-weight: bold;
     transition: 0.5s;
 }
 

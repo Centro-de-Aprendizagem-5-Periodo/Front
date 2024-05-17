@@ -66,7 +66,7 @@ header {
 }
 
 #container-title {
-		display: flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100%;

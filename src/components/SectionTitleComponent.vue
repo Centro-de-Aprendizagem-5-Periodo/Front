@@ -42,7 +42,7 @@ hr {
 }
 
 #icon {
-    color: $header-light-gray
+    color: $header-light-gray;
 }
 
 #section-content {

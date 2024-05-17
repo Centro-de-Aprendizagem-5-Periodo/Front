@@ -1,34 +1,22 @@
 <script setup>
 import { ref } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 const store = useStore();
-const editingName = ref(false);
 const name = ref(store.state.nameChanged);
+const router = useRouter();
 
-function toggleEdit() {
-    editingName.value = !editingName.value;
-    if (!editingName.value) {
-        store.dispatch('modifyName', name.value);
-    }
-}
-
-function handleEnter(event) {
-    if (event.key === 'Enter') {
-        toggleEdit();
-    }
-}
 </script>
 
 <template>
     <div id="profile">
         <img
             src="https://st3.depositphotos.com/1594920/18263/i/450/depositphotos_182639510-stock-photo-sphynx-hairless-cat-4-years.jpg">
-        <p v-if="!editingName">
+        <p>
             {{ name }}
-            <font-awesome-icon id="icon" :icon="['fas', 'pencil']" style="color: #ffffff;" @click="toggleEdit" />
+            <font-awesome-icon id="icon" :icon="['fas', 'pencil']" style="color: #ffffff;" @click="router.push({ path: '/editar' })" />
         </p>
-        <input v-else v-model="name" @keyup.enter="handleEnter">
     </div>
 </template>
 
@@ -61,16 +49,5 @@ p {
 
 #icon:hover {
     transform: scale(1.1);
-}
-
-input {
-    font-family: $font-style;
-    color: #e3dada;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #e3dada;
-    width: 125px;
-    text-align: center;
-    outline: none;
 }
 </style>
