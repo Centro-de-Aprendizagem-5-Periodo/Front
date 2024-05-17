@@ -38,7 +38,6 @@ const routes = [
     component: EditarUsuarioView
   }
 ];
-666
 const router = createRouter({
   history: createWebHistory(),
   routes,

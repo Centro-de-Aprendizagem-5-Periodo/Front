@@ -18,6 +18,8 @@ const password = ref(store.state.passwordChanged);
 const cellphone = ref(store.state.cellphoneChanged);
 const birthday = ref(store.state.birthdayChanged);
 const identification = ref(store.state.identificationChanged);
+const houseNumber = ref(store.state.houseNumberChanged);
+const complement = ref(store.state.complementChanged);
 const street = ref(store.state.streetChanged);
 const neighborhood = ref(store.state.neighborhoodChanged);
 const cep = ref(store.state.cepChanged);
@@ -39,6 +41,8 @@ function salvar() {
 		cellphone: cellphone.value.trim() || store.state.cellphoneChanged,
         birthday: birthday.value.trim() || store.state.birthdayChanged,
         identification: identification.value.trim() || store.state.identificationChanged,
+		houseNumber: houseNumber.value.trim() || store.state.houseNumberChanged,
+		complement: complement.value.trim() || store.state.complementChanged,
         street: street.value.trim() || store.state.streetChanged,
         neighborhood: neighborhood.value.trim() || store.state.neighborhoodChanged,
         cep: cep.value.trim() || store.state.cepChanged,
@@ -78,11 +82,19 @@ function salvar() {
 				<input type="date" id="campo-data" v-model="birthday">
 			</div>
 			<div id="input-identidade" class="inputContainer">
-				<label for="campo-ident">Nº de Identificação</label>
+				<label for="campo-ident">Nº de Identificação (CPF/Identidade)</label>
 				<input type="text" id="campo-ident" v-model="identification">
 			</div> 
 
 			<div id="endereco">
+				<div id="input-numeroCasa" class="inputContainer">
+					<label for="campo-numeroCasa">Número</label>
+					<input type="text" id="campo-numeroCasa" v-model="houseNumber">
+				</div>
+				<div id="input-complemento" class="inputContainer">
+					<label for="campo-complemento">Complemento</label>
+					<input type="text" id="campo-complemento" v-model="complement">
+				</div>
 				<div id="input-logradouro" class="inputContainer">
 					<label for="campo-logradouro">Logradouro</label>
 					<input type="text" id="campo-logradouro" v-model="street">
@@ -101,7 +113,35 @@ function salvar() {
 				</div>
 				<div id="input-uf" class="inputContainer">
 					<label for="campo-uf">UF</label>
-					<input type="text" id="campo-uf" v-model="uf">
+					<select id="campo-uf" v-model="uf">
+						<option value="AC">Acre</option>
+						<option value="AL">Alagoas</option>
+						<option value="AP">Amapá</option>
+						<option value="AM">Amazonas</option>
+						<option value="BA">Bahia</option>
+						<option value="CE">Ceará</option>
+						<option value="DF">Distrito Federal</option>
+						<option value="ES">Espirito Santo</option>
+						<option value="GO">Goiás</option>
+						<option value="MA">Maranhão</option>
+						<option value="MS">Mato Grosso do Sul</option>
+						<option value="MT">Mato Grosso</option>
+						<option value="MG">Minas Gerais</option>
+						<option value="PA">Pará</option>
+						<option value="PB">Paraíba</option>
+						<option value="PR">Paraná</option>
+						<option value="PE">Pernambuco</option>
+						<option value="PI">Piauí</option>
+						<option value="RJ">Rio de Janeiro</option>
+						<option value="RN">Rio Grande do Norte</option>
+						<option value="RS">Rio Grande do Sul</option>
+						<option value="RO">Rondônia</option>
+						<option value="RR">Roraima</option>
+						<option value="SC">Santa Catarina</option>
+						<option value="SP">São Paulo</option>
+						<option value="SE">Sergipe</option>
+						<option value="TO">Tocantins</option>
+					</select>
 				</div>
 			</div>
 			<button @click="salvar" id="finalizar">FINALIZAR EDIÇÃO</button>
@@ -122,7 +162,7 @@ label {
 	margin-bottom: 10px;
 }
 
-input {
+input, select {
 	outline: none;
 	border: 1px solid #969696;
 	background-color: #D9D9D9;

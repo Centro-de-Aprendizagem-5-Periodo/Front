@@ -10,6 +10,8 @@ const store = createStore({
       cellphoneChanged: '',
       birthdayChanged: '',
       identificationChanged: '',
+      houseNumberChanged: '',
+      complementChanged: '',
       streetChanged: '',
       neighborhoodChanged: '',
       cepChanged: '',
@@ -30,6 +32,8 @@ const store = createStore({
       state.cellphoneChanged = payload.cellphone;
       state.birthdayChanged = payload.birthday;
       state.identificationChanged = payload.identification;
+      state.houseNumberChanged = payload.houseNumber;
+      state.complementChanged = payload.complement;
       state.streetChanged = payload.street;
       state.neighborhoodChanged = payload.neighborhood;
       state.cepChanged = payload.cep;
