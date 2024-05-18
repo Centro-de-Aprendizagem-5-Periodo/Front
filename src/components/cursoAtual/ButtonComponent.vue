@@ -31,6 +31,7 @@ button {
     justify-content: end;
     border-color: rgb(39, 168, 89);
     border: none;
+    border-radius: 3%;
     cursor: pointer;
     transition: 0.5s;
 }

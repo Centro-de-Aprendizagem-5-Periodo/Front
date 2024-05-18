@@ -1,7 +1,15 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 
 var router = useRouter()
+const showingPassword = ref(false);
+
+function togglePasswordVisibility() {
+	const passwordInput = document.getElementById('senha');
+    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+	showingPassword.value = !showingPassword.value;
+}
 
 function logar() {
     router.push({ path: '/' })
@@ -19,12 +27,15 @@ function logar() {
                     <p>Faça agora seu login</p>
 
                     <div class="input-login">
-                        <label>Login</label>
-                        <input>
+                        <label for="login">Login (Email)</label>
+                        <input type="text" id="login" v-model="email" maxlength = "64">
                     </div>
                     <div class="input-login">
-                        <label>Senha</label>
-                        <input>
+                        <label for="senha">Senha</label>
+                        <div class="insidePassword-input">
+                            <input type="password" id="senha" v-model="password" maxlength = "32">
+                            <font-awesome-icon id="icon" :icon="showingPassword ? ['fas', 'eye'] : ['fas', 'eye-slash']" @click="togglePasswordVisibility"/>
+                        </div>
                     </div>
                 </div>
                 <button @click="logar" id="entrar">ENTRAR</button>
@@ -65,6 +76,18 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.insidePassword-input {
+    position: relative;
+}
+
+#icon {
+	color: gray;
+    position: absolute;
+    top: 13%;
+    right: 0.1px;
+	cursor: pointer;
 }
 
 #entrar {

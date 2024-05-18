@@ -11,7 +11,11 @@ const buttons = [
 	{ title: 'Todos os cursos', icon: 'book', routeName: 'Todos Cursos' }
 ];
 
+const route = useRoute();
+const router = useRouter();
+const currentHeaderTitle = route.name;
 const store = useStore();
+
 const name = ref(store.state.nameChanged);
 const email = ref(store.state.emailChanged);
 const password = ref(store.state.passwordChanged);
@@ -26,11 +30,15 @@ const cep = ref(store.state.cepChanged);
 const city = ref(store.state.cityChanged);
 const uf = ref(store.state.ufChanged);
 
-const route = useRoute();
-const router = useRouter();
-const currentHeaderTitle = route.name
+const showingPassword = ref(false);
 
-function salvar() {
+function togglePasswordVisibility() {
+	const passwordInput = document.getElementById('campo-senha');
+    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+	showingPassword.value = !showingPassword.value;
+}
+
+function save() {
 	if (name.value !== store.state.nameChanged && name.value.trim() !== '') {
         store.dispatch('modifyName', name.value.trim());
     }
@@ -63,55 +71,68 @@ function salvar() {
 		<div id="container">
 			<div id="input-login" class="inputContainer">
 				<label for="campo-email">Login (Email)</label>
-    			<input type="text" id="campo-email" v-model="email">
+    			<input type="text" id="campo-email" v-model="email" maxlength = "64">
 			</div>
 			<div id="input-senha" class="inputContainer">
 				<label for="campo-senha">Senha</label>
-				<input type="password" id="campo-senha" v-model="password">
+				<div class="insidePassword-input">
+					<input type="password" id="campo-senha" v-model="password" maxlength = "32">
+					<font-awesome-icon id="icon" :icon="showingPassword ? ['fas', 'eye'] : ['fas', 'eye-slash']" @click="togglePasswordVisibility"/>
+				 </div>
 			</div>
 			<div id="input-nome" class="inputContainer">
 				<label for="campo-nome">Nome</label>
-				<input type="text" id="campo-nome" v-model="name">
+				<input type="text" id="campo-nome" v-model="name" maxlength = "64">
 			</div>
 			<div id="input-telefone" class="inputContainer">
 				<label for="campo-telefone">Telefone</label>
-				<input type="text" id="campo-telefone" v-model="cellphone">
+				<input type="text" id="campo-telefone" v-model="cellphone" maxlength = "14">
 			</div>
-			<div id="input-data-nascimento" class="inputContainer">
-				<label for="campo-data">Data de Nascimento</label>
-				<input type="date" id="campo-data" v-model="birthday">
-			</div>
-			<div id="input-identidade" class="inputContainer">
-				<label for="campo-ident">Nº de Identificação (CPF/Identidade)</label>
-				<input type="text" id="campo-ident" v-model="identification">
-			</div> 
 
-			<div id="endereco">
-				<div id="input-numeroCasa" class="inputContainer">
+			<div id="data-identidadade" class="inputContainer flex">
+				<div id="input-data-nascimento" class="half">
+					<label for="campo-data">Data de Nascimento</label>
+					<input type="date" id="campo-data" v-model="birthday">
+				</div>
+				<div id="input-identidade" class="half">
+					<label for="campo-ident">Nº de Identificação (CPF/Identidade)</label>
+					<input type="text" id="campo-ident" v-model="identification" maxlength = "18">
+				</div> 
+			</div>
+
+			<div id="numeroCasa-Complemento" class="inputContainer flex">
+				<div id="input-numeroCasa" class="half">
 					<label for="campo-numeroCasa">Número</label>
-					<input type="text" id="campo-numeroCasa" v-model="houseNumber">
+					<input type="text" id="campo-numeroCasa" v-model="houseNumber" maxlength = "8">
 				</div>
-				<div id="input-complemento" class="inputContainer">
+				<div id="input-complemento" class="half">
 					<label for="campo-complemento">Complemento</label>
-					<input type="text" id="campo-complemento" v-model="complement">
+					<input type="text" id="campo-complemento" v-model="complement" maxlength = "45">
 				</div>
+			</div>
+
 				<div id="input-logradouro" class="inputContainer">
 					<label for="campo-logradouro">Logradouro</label>
-					<input type="text" id="campo-logradouro" v-model="street">
+					<input type="text" id="campo-logradouro" v-model="street" maxlength = "140">
 				</div>
-				<div id="input-bairro" class="inputContainer">
+
+			<div id="bairro-cep" class="inputContainer flex">
+				<div id="input-bairro" class="half">
 					<label for="campo-bairro">Bairro</label>
-					<input type="text" id="campo-bairro" v-model="neighborhood">
+					<input type="text" id="campo-bairro" v-model="neighborhood" maxlength = "90">
 				</div>
-				<div id="input-cep" class="inputContainer">
+				<div id="input-cep" class="half">
 					<label for="campo-cep">CEP</label>
-					<input type="text" id="campo-cep" v-model="cep">
+					<input type="text" id="campo-cep" v-model="cep" maxlength = "8">
 				</div>
-				<div id="cidade" class="inputContainer">
+			</div>
+
+			<div id="cidade-uf" class="inputContainer flex">
+				<div id="cidade" class="half">
 					<label for="campo-cidade">Cidade</label>
-					<input type="text" id="campo-cidade"v-model="city">
+					<input type="text" id="campo-cidade"v-model="city" maxlength = "32">
 				</div>
-				<div id="input-uf" class="inputContainer">
+				<div id="input-uf" class="half">
 					<label for="campo-uf">UF</label>
 					<select id="campo-uf" v-model="uf">
 						<option value="AC">Acre</option>
@@ -144,7 +165,7 @@ function salvar() {
 					</select>
 				</div>
 			</div>
-			<button @click="salvar" id="finalizar">FINALIZAR EDIÇÃO</button>
+			<button @click="save" id="salvar">SALVAR</button>
 		</div>
 	</div>
 </template>
@@ -160,34 +181,81 @@ label {
 
 .inputContainer {
 	margin-bottom: 10px;
+	width: 700px;
+}
+
+.insidePassword-input {
+    position: relative;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.half{
+	width: calc(50% - 10px);
 }
 
 input, select {
 	outline: none;
-	border: 1px solid #969696;
-	background-color: #D9D9D9;
+	border: 1px solid #D9D9D9;
+	background-color: #e6e6e6;
 	border-radius: 0%;
 	height: 30px;
-	width: 700px;
+	width: 100%;
 	margin-bottom: 5px;
+	box-sizing: border-box;
+	transition: background-color 0.3s, border-color 0.3s;
 }
 
-#finalizar {
-    width: 150px;
+input:hover, select:hover {
+  background-color: #D9D9D9;
+  border-color: #A8A8A7;
+}
+
+input:focus, select:focus {
+  background-color: #D9D9D9;
+  border-color: #7299fc;
+}
+
+input[type="date"] {
+  cursor: text;
+}
+
+select{
+	cursor: pointer;
+}
+
+#campo-senha {
+    padding-right: 30px;
+}
+
+#icon {
+	color: gray;
+    position: absolute;
+    top: 20%;
+    right: 5px;
+	cursor: pointer;
+}
+
+#salvar {
+    width: 140px;
     height: 40px;
-    background: #127e71;
+    background-color: rgb(39, 168, 89);
     color: white;
     border-radius: 3px;
     border: none;
     cursor: pointer;
     font-family: Inter;
     font-weight: bold;
+	font-size: medium;
     transition: 0.5s;
 }
 
-#finalizar:hover {
+#salvar:hover {
     transform: scale(1.1);
-    background-color: #096a67;
+    background-color: rgb(39, 138, 69);
 }
 
 
