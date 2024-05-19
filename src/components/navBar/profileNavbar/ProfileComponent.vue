@@ -5,17 +5,40 @@ import { useRouter } from 'vue-router';
 
 const store = useStore();
 const name = ref(store.state.nameChanged);
+const profilePic = ref(store.state.profilePicChanged);
 const router = useRouter();
+const fileInput = ref(null);
+
+function uploadImage(e) {
+    fileInput.value.click();
+
+    const image = e.target.files[0];
+    if (!image.type.match("image/*")) {
+        alert('Formato Inválido');
+        return;
+    }
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onload = (e) => {
+        profilePic.value = e.target.result;
+        store.commit('modifyProfilePic', e.target.result);
+    };
+}
 
 </script>
 
 <template>
     <div id="profile">
-        <img
-            src="https://st3.depositphotos.com/1594920/18263/i/450/depositphotos_182639510-stock-photo-sphynx-hairless-cat-4-years.jpg">
+        <div id="container-picture">
+            <img :src="profilePic">
+            <div  v-if="router.currentRoute.value.path == '/editar'" class="camera-container" @click="uploadImage">
+                <font-awesome-icon id="camera-icon" :icon="['fas', 'camera']" />
+            </div>
+            <input type="file" accept="image/*" @change="uploadImage" ref="fileInput">
+        </div>
         <p>
             {{ name }}
-            <font-awesome-icon id="icon" :icon="['fas', 'pencil']" style="color: #ffffff;" @click="router.push({ path: '/editar' })" />
+            <font-awesome-icon v-if="router.currentRoute.value.path !== '/editar'" id="pencil-icon" :icon="['fas', 'pencil']" style="color: #ffffff;" @click="router.push({ path: '/editar' })" />
         </p>
     </div>
 </template>
@@ -37,17 +60,48 @@ img {
     height: 150px;
 }
 
+input {
+    display: none;
+}
+
 p {
     font-family: $font-style;
     color: #e3dada;
 }
 
-#icon {
+#container-picture {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.camera-container{
+    position: absolute;
+    bottom: 23px;
+    right: 20px;
+    transform: translate(50%, 50%);
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#camera-icon {
+    font-size: 30px;
+    color: grey;
+}
+
+#pencil-icon {
     padding-left: 4px;
     cursor: pointer;
 }
 
-#icon:hover {
+#pencil-icon:hover {
     transform: scale(1.1);
 }
 </style>

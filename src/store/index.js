@@ -17,6 +17,7 @@ const store = createStore({
       cepChanged: '',
       cityChanged: '',
       ufChanged: '',
+      profilePicChanged: 'https://st3.depositphotos.com/1594920/18263/i/450/depositphotos_182639510-stock-photo-sphynx-hairless-cat-4-years.jpg',
     };
   },
   mutations: {
@@ -39,7 +40,10 @@ const store = createStore({
       state.cepChanged = payload.cep;
       state.cityChanged = payload.city;
       state.ufChanged = payload.uf;
-    }
+    },
+    modifyProfilePic(state, newProfilePic) {
+      state.profilePicChanged = newProfilePic;
+    },
   },
   actions: {
     toggleNavbar({ commit }) {
@@ -50,6 +54,9 @@ const store = createStore({
     },
     modifyUser({ commit }, payload) {
       commit('modifyUser', payload);
+    },
+    modifyProfilePic({ commit }, newProfilePic) {
+      commit('modifyProfilePic', newProfilePic);
     }
   },
   getters: {
@@ -58,7 +65,10 @@ const store = createStore({
     },
     isNameChanged(state) {
       return state.nameChanged;
-    }
+    },
+    isProfilePicChanged(state) {
+      return state.state.profilePicChanged;
+    },
   },
 });
 

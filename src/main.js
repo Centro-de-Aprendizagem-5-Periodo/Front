@@ -23,9 +23,10 @@ import {
 	faCheck,
 	faEyeSlash,
 	faEye,
+	faCamera,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPhone, faBars, faTimes, faSignOut, faPencil, faGraduationCap, faScroll, faBook, faPlay, faChevronRight, faChevronLeft, faStar, faSquareCheck, faArrowLeft, faCheck, faEyeSlash, faEye)
+library.add(faPhone, faBars, faTimes, faSignOut, faPencil, faGraduationCap, faScroll, faBook, faPlay, faChevronRight, faChevronLeft, faStar, faSquareCheck, faArrowLeft, faCheck, faEyeSlash, faEye, faCamera)
 
 createApp(App)
 	.component("font-awesome-icon", FontAwesomeIcon)

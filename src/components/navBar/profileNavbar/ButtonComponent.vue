@@ -16,7 +16,7 @@ function isSelectedButton(button) {
     <button :class="isSelectedButton(buttonProps) ? 'selected' : ''"
         @click="$router.push({ name: buttonProps.routeName })">
         <div style="font-size:x-large">
-            <font-awesome-icon :icon="buttonProps.icon" color="#ebe1e1" />
+            <font-awesome-icon  :icon="buttonProps.icon" color="#ebe1e1" />
         </div>
 
         <span>

@@ -17,6 +17,7 @@ const currentHeaderTitle = route.name;
 const store = useStore();
 
 const name = ref(store.state.nameChanged);
+
 const email = ref(store.state.emailChanged);
 const password = ref(store.state.passwordChanged);
 const cellphone = ref(store.state.cellphoneChanged);
@@ -29,6 +30,36 @@ const neighborhood = ref(store.state.neighborhoodChanged);
 const cep = ref(store.state.cepChanged);
 const city = ref(store.state.cityChanged);
 const uf = ref(store.state.ufChanged);
+
+const estados = [
+    { sigla: 'AC', nome: 'Acre' },
+    { sigla: 'AL', nome: 'Alagoas' },
+    { sigla: 'AP', nome: 'Amapá' },
+    { sigla: 'AM', nome: 'Amazonas' },
+    { sigla: 'BA', nome: 'Bahia' },
+    { sigla: 'CE', nome: 'Ceará' },
+    { sigla: 'DF', nome: 'Distrito Federal' },
+    { sigla: 'ES', nome: 'Espírito Santo' },
+    { sigla: 'GO', nome: 'Goiás' },
+    { sigla: 'MA', nome: 'Maranhão' },
+    { sigla: 'MT', nome: 'Mato Grosso' },
+    { sigla: 'MS', nome: 'Mato Grosso do Sul' },
+    { sigla: 'MG', nome: 'Minas Gerais' },
+    { sigla: 'PA', nome: 'Pará' },
+    { sigla: 'PB', nome: 'Paraíba' },
+    { sigla: 'PR', nome: 'Paraná' },
+    { sigla: 'PE', nome: 'Pernambuco' },
+    { sigla: 'PI', nome: 'Piauí' },
+    { sigla: 'RJ', nome: 'Rio de Janeiro' },
+    { sigla: 'RN', nome: 'Rio Grande do Norte' },
+    { sigla: 'RS', nome: 'Rio Grande do Sul' },
+    { sigla: 'RO', nome: 'Rondônia' },
+    { sigla: 'RR', nome: 'Roraima' },
+    { sigla: 'SC', nome: 'Santa Catarina' },
+    { sigla: 'SP', nome: 'São Paulo' },
+    { sigla: 'SE', nome: 'Sergipe' },
+    { sigla: 'TO', nome: 'Tocantins' }
+];
 
 const showingPassword = ref(false);
 
@@ -82,7 +113,7 @@ function save() {
 			</div>
 			<div id="input-nome" class="inputContainer">
 				<label for="campo-nome">Nome</label>
-				<input type="text" id="campo-nome" v-model="name" maxlength = "64">
+				<input type="text" id="campo-nome" v-model="name" maxlength = "20">
 			</div>
 			<div id="input-telefone" class="inputContainer">
 				<label for="campo-telefone">Telefone</label>
@@ -135,33 +166,7 @@ function save() {
 				<div id="input-uf" class="half">
 					<label for="campo-uf">UF</label>
 					<select id="campo-uf" v-model="uf">
-						<option value="AC">Acre</option>
-						<option value="AL">Alagoas</option>
-						<option value="AP">Amapá</option>
-						<option value="AM">Amazonas</option>
-						<option value="BA">Bahia</option>
-						<option value="CE">Ceará</option>
-						<option value="DF">Distrito Federal</option>
-						<option value="ES">Espirito Santo</option>
-						<option value="GO">Goiás</option>
-						<option value="MA">Maranhão</option>
-						<option value="MS">Mato Grosso do Sul</option>
-						<option value="MT">Mato Grosso</option>
-						<option value="MG">Minas Gerais</option>
-						<option value="PA">Pará</option>
-						<option value="PB">Paraíba</option>
-						<option value="PR">Paraná</option>
-						<option value="PE">Pernambuco</option>
-						<option value="PI">Piauí</option>
-						<option value="RJ">Rio de Janeiro</option>
-						<option value="RN">Rio Grande do Norte</option>
-						<option value="RS">Rio Grande do Sul</option>
-						<option value="RO">Rondônia</option>
-						<option value="RR">Roraima</option>
-						<option value="SC">Santa Catarina</option>
-						<option value="SP">São Paulo</option>
-						<option value="SE">Sergipe</option>
-						<option value="TO">Tocantins</option>
+						<option v-for="estado in estados" :key="estado.sigla" :value="estado.sigla">{{ estado.nome }}</option>
 					</select>
 				</div>
 			</div>
@@ -237,6 +242,10 @@ select{
     top: 20%;
     right: 5px;
 	cursor: pointer;
+}
+
+#icon:hover {
+    transform: scale(1.1);
 }
 
 #salvar {

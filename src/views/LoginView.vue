@@ -1,8 +1,12 @@
 <script setup>
-import { useRouter } from 'vue-router';
 import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
-var router = useRouter()
+var router = useRouter();
+const store = useStore();
+const email = ref('');
+const password = ref('');
 const showingPassword = ref(false);
 
 function togglePasswordVisibility() {
@@ -12,7 +16,11 @@ function togglePasswordVisibility() {
 }
 
 function logar() {
-    router.push({ path: '/' })
+    if (email.value.trim() === store.state.emailChanged && password.value.trim() === store.state.passwordChanged) {
+        router.push({ path: '/' });
+    } else {
+        alert('Login ou senha incorretos!');
+    }
 }
 
 </script>
@@ -32,7 +40,7 @@ function logar() {
                     </div>
                     <div class="input-login">
                         <label for="senha">Senha</label>
-                        <div class="insidePassword-input">
+                        <div id="container-password">
                             <input type="password" id="senha" v-model="password" maxlength = "32">
                             <font-awesome-icon id="icon" :icon="showingPassword ? ['fas', 'eye'] : ['fas', 'eye-slash']" @click="togglePasswordVisibility"/>
                         </div>
@@ -78,7 +86,7 @@ input {
     justify-content: space-between;
 }
 
-.insidePassword-input {
+#container-password {
     position: relative;
 }
 
@@ -88,6 +96,10 @@ input {
     top: 13%;
     right: 0.1px;
 	cursor: pointer;
+}
+
+#icon:hover {
+    transform: scale(1.1);
 }
 
 #entrar {

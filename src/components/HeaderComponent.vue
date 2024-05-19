@@ -84,4 +84,8 @@ header {
 	align-items: center;
 	cursor: pointer;
 }
+
+#hamburguinho:hover{
+	transform: scale(1.1);
+}
 </style>
