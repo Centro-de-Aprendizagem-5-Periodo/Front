@@ -9,7 +9,7 @@ describe('pagina meus certificados', () => {
     click(page.myCertificatesText)
   })
 
-  // it('Abrir card de curso ao clicar no título do curso', () => {
+  // it('Abrir card de curso ao clicar no título do curso', () => {teste
     
   // })
 })
