@@ -198,7 +198,7 @@ label {
     justify-content: space-between;
 }
 
-.half{
+.half {
 	width: calc(50% - 10px);
 }
 
@@ -211,7 +211,7 @@ input, select {
 	width: 100%;
 	margin-bottom: 5px;
 	box-sizing: border-box;
-	transition: background-color 0.3s, border-color 0.3s;
+	transition: 0.5s;
 }
 
 input:hover, select:hover {
@@ -228,7 +228,7 @@ input[type="date"] {
   cursor: text;
 }
 
-select{
+select {
 	cursor: pointer;
 }
 
@@ -266,7 +266,6 @@ select{
     transform: scale(1.1);
     background-color: rgb(39, 138, 69);
 }
-
 
 #container {
 	display: flex;

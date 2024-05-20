@@ -76,24 +76,26 @@ p {
     align-items: center;
 }
 
-.camera-container{
+.camera-container {
     position: absolute;
-    bottom: 23px;
-    right: 20px;
-    transform: translate(50%, 50%);
+    display: flex;
     width: 40px;
     height: 40px;
-    background-color: white;
+    bottom: 0;
+    right: 0;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background-color: $white;
     cursor: pointer;
 }
 
 #camera-icon {
     font-size: 30px;
     color: grey;
+}
+.camera-container:hover {
+    transform: scale(1.1);
 }
 
 #pencil-icon {

@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 
-var router = useRouter();
+const router = useRouter();
 const store = useStore();
 const email = ref('');
 const password = ref('');
@@ -93,8 +93,8 @@ input {
 #icon {
 	color: gray;
     position: absolute;
-    top: 13%;
-    right: 0.1px;
+    top: 12%;
+    right: 0px;
 	cursor: pointer;
 }
 

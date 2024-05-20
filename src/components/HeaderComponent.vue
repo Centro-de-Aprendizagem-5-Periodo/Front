@@ -85,7 +85,7 @@ header {
 	cursor: pointer;
 }
 
-#hamburguinho:hover{
+#hamburguinho:hover {
 	transform: scale(1.1);
 }
 </style>

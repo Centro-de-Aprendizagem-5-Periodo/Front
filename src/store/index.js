@@ -17,7 +17,7 @@ const store = createStore({
       cepChanged: '',
       cityChanged: '',
       ufChanged: '',
-      profilePicChanged: 'https://st3.depositphotos.com/1594920/18263/i/450/depositphotos_182639510-stock-photo-sphynx-hairless-cat-4-years.jpg',
+      profilePicChanged: 'https://t3.ftcdn.net/jpg/07/21/89/28/240_F_721892884_VkaE9y8m4x5fURbD9GZQ0PY8oJ7ehxOm.jpg',
     };
   },
   mutations: {
@@ -66,8 +66,24 @@ const store = createStore({
     isNameChanged(state) {
       return state.nameChanged;
     },
+    isUserChanged(state) {
+      return (
+        state.emailChanged || 
+        state.passwordChanged || 
+        state.cellphoneChanged || 
+        state.birthdayChanged || 
+        state.identificationChanged || 
+        state.houseNumberChanged || 
+        state.complementChanged || 
+        state.streetChanged || 
+        state.neighborhoodChanged || 
+        state.cepChanged || 
+        state.cityChanged || 
+        state.ufChanged
+      );
+    },
     isProfilePicChanged(state) {
-      return state.state.profilePicChanged;
+      return state.profilePicChanged;
     },
   },
 });
