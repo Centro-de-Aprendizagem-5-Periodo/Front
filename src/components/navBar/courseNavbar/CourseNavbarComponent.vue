@@ -21,7 +21,7 @@ function closeNavBar() {
 }
 
 function entrarTelaInicial() {
-    router.push({ path: '/' })
+    router.push({ path: '/meus-cursos' })
 }
 
 </script>

@@ -3,9 +3,11 @@ import { useRouter } from 'vue-router';
 var router = useRouter()
 
 function entrarTelaInicial() {
-    router.push({ path: '/' })
+    router.push({ path: '/meus-cursos' })
 }
+
 </script>
+
 <template>
     <div class="pai-button">
         <button @click="entrarTelaInicial">
@@ -15,7 +17,9 @@ function entrarTelaInicial() {
         </button>
     </div>
 </template>
+
 <style scoped>
+
 div {
     display: flex;
     justify-content: end;

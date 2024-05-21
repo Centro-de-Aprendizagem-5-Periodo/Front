@@ -1,14 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
+import LoginView from "../views/LoginView.vue";
 import MeusCursosView from "../views/MeusCursosView.vue"
 import MeusCertificadosView from "../views/MeusCertificadosView.vue"
 import TodosOsCursosView from "../views/TodosOsCursosView.vue"
-import LoginView from "../views/LoginView.vue";
 import CursoAtualView from "../views/CursoAtualView.vue";
 import EditarUsuarioView from "../views/EditarUsuarioView.vue"
+import CadastrarUsuarioView from "../views/CadastrarUsuarioView.vue"
 
 const routes = [
   {
-    path: "/",
+    path: "/meus-cursos",
     name: "Meus Cursos",
     component: MeusCursosView,
   },
@@ -28,9 +29,14 @@ const routes = [
     component: TodosOsCursosView
   },
   {
-    path: "/login",
+    path: "/",
     name: "Login",
     component: LoginView
+  },
+  {
+    path: "/cadastrar",
+    name: "Cadastrar Usuário",
+    component: CadastrarUsuarioView
   },
   {
     path: "/editar",

@@ -61,7 +61,6 @@ var progress = 100;
         font-family: $font-style;
         text-align: center;
     }
-
 }
 
 .main {

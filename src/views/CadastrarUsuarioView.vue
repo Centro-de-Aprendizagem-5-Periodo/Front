@@ -1,34 +1,28 @@
 <script setup>
-import HeaderComponent from '../components/HeaderComponent.vue';
 import NavbarComponent from '../components/navBar/profileNavbar/ProfileNavbarComponent.vue';
+import HeaderComponent from '../components/HeaderComponent.vue';
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute,useRouter } from 'vue-router';
-
-const buttons = [
-	{ title: 'Meus cursos', icon: 'graduation-cap', routeName: 'Meus Cursos' },
-	{ title: 'Meus certificados', icon: 'scroll', routeName: 'Meus Certificados' },
-	{ title: 'Todos os cursos', icon: 'book', routeName: 'Todos Cursos' }
-];
 
 const route = useRoute();
 const router = useRouter();
 const currentHeaderTitle = route.name;
 const store = useStore();
 
-const name = ref(store.state.nameChanged);
-const email = ref(store.state.emailChanged);
-const password = ref(store.state.passwordChanged);
-const cellphone = ref(store.state.cellphoneChanged);
-const birthday = ref(store.state.birthdayChanged);
-const identification = ref(store.state.identificationChanged);
-const houseNumber = ref(store.state.houseNumberChanged);
-const complement = ref(store.state.complementChanged);
-const street = ref(store.state.streetChanged);
-const neighborhood = ref(store.state.neighborhoodChanged);
-const cep = ref(store.state.cepChanged);
-const city = ref(store.state.cityChanged);
-const uf = ref(store.state.ufChanged);
+const name = ref('');
+const email = ref('');
+const password = ref('');
+const cellphone = ref('');
+const birthday = ref('');
+const identification = ref('');
+const houseNumber = ref('');
+const complement = ref('');
+const street = ref('');
+const neighborhood = ref('');
+const cep = ref('');
+const city = ref('');
+const uf = ref('');
 
 const estados = [
     { sigla: 'AC', nome: 'Acre' },
@@ -68,9 +62,28 @@ function togglePasswordVisibility() {
 	showingPassword.value = !showingPassword.value;
 }
 
-function save() {
+function register() {
+    if (
+        name.value.trim() === '' ||
+        email.value.trim() === '' ||
+        password.value.trim() === '' ||
+        cellphone.value.trim() === '' ||
+        birthday.value.trim() === '' ||
+        identification.value.trim() === '' ||
+        houseNumber.value.trim() === '' ||
+        complement.value.trim() === '' ||
+        street.value.trim() === '' ||
+        neighborhood.value.trim() === '' ||
+        cep.value.trim() === '' ||
+        city.value.trim() === '' ||
+        uf.value.trim() === ''
+    ) {
+        alert('Preencha todos os campos!');
+        return;
+    }
+
 	const payload = {
-		name: name.value.trim() || store.state.nameChanged,
+        name: name.value.trim() || store.state.nameChanged,
         email: email.value.trim() || store.state.emailChanged,
         password: password.value.trim() || store.state.passwordChanged,
 		cellphone: cellphone.value.trim() || store.state.cellphoneChanged,
@@ -86,7 +99,7 @@ function save() {
     };
 
     store.dispatch('modifyUser', payload);
-	router.push({ path: '/meus-cursos' });
+	router.push({ path: '/' });
 }
 
 </script>
@@ -166,7 +179,7 @@ function save() {
 					</select>
 				</div>
 			</div>
-			<button @click="save" id="salvar">SALVAR</button>
+			<button @click="register" id="cadastrar">CADASTRAR</button>
 		</div>
 	</div>
 </template>
@@ -244,7 +257,7 @@ select {
     transform: scale(1.1);
 }
 
-#salvar {
+#cadastrar {
     width: 140px;
     height: 40px;
     background-color: rgb(39, 168, 89);
@@ -258,7 +271,7 @@ select {
     transition: 0.5s;
 }
 
-#salvar:hover {
+#cadastrar:hover {
     transform: scale(1.1);
     background-color: rgb(39, 138, 69);
 }

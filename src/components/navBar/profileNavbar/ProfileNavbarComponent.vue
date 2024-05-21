@@ -19,7 +19,7 @@ function closeNavBar() {
 }
 
 function deslogar() {
-	router.push({ path: '/login' })
+	router.push({ path: '/' })
 }
 
 </script>
@@ -27,9 +27,10 @@ function deslogar() {
 <template>
 	<div id="nav-bar">
 		<div id="log-out">
-			<i><font-awesome-icon id="sign-out" class="icon" icon="sign-out" color="#ebe1e1" size="2x" @click="deslogar"/></i>
-			<ProfileComponent></ProfileComponent>
-			<i><font-awesome-icon class="icon" icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
+			<i><font-awesome-icon id="sign-out" class="icon" icon="sign-out" color="#ebe1e1" size="2x" style="width: 28px" @click="deslogar"/></i>
+			<ProfileComponent ></ProfileComponent>
+			<i><font-awesome-icon v-if="router.currentRoute.value.path !== '/cadastrar'"class="icon" icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" style="width: 24px" /></i>
+			<i v-if="router.currentRoute.value.path === '/cadastrar'" style="width: 34px" ></i>
 		</div>
 		<!-- TODO: dentro desse nav chamaremos nossos botões -->
 		<nav class="item-list">

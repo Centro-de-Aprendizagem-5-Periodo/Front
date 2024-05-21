@@ -6,6 +6,7 @@ let selected = ref('Aula 1');
 function print () {
     console.log("teste: " + selected.value)
 }
+
 </script>
 
 <template>

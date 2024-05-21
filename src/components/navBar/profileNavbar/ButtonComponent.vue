@@ -40,6 +40,7 @@ button {
     background-color: transparent;
     border: none;
     transition: 0.5s;
+    margin-top: 2px;
 }
 
 button:hover {
@@ -60,6 +61,7 @@ span {
     color: white;
     font-size: 15px;
     font-family: $font-style;
+    margin-top: 2px;
 }
 
 .selected {

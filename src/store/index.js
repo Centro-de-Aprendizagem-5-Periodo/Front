@@ -4,7 +4,7 @@ const store = createStore({
   state() {
     return {
       navbarOpen: false,
-      nameChanged: 'Nome',
+      nameChanged: '',
       emailChanged: '',
       passwordChanged: '',
       cellphoneChanged: '',
@@ -24,10 +24,8 @@ const store = createStore({
     toggleNavbar(state) {
       state.navbarOpen = !state.navbarOpen;
     },
-    modifyName(state, newName) {
-      state.nameChanged = newName;
-    },
     modifyUser(state, payload) {
+      state.nameChanged = payload.name;
       state.emailChanged = payload.email;
       state.passwordChanged = payload.password;
       state.cellphoneChanged = payload.cellphone;
@@ -49,9 +47,6 @@ const store = createStore({
     toggleNavbar({ commit }) {
       commit('toggleNavbar');
     },
-    modifyName({ commit }, newName) {
-      commit('modifyName', newName);
-    },
     modifyUser({ commit }, payload) {
       commit('modifyUser', payload);
     },
@@ -63,22 +58,20 @@ const store = createStore({
     isNavbarOpen(state) {
       return state.navbarOpen;
     },
-    isNameChanged(state) {
-      return state.nameChanged;
-    },
     isUserChanged(state) {
       return (
-        state.emailChanged || 
-        state.passwordChanged || 
-        state.cellphoneChanged || 
-        state.birthdayChanged || 
-        state.identificationChanged || 
-        state.houseNumberChanged || 
-        state.complementChanged || 
-        state.streetChanged || 
-        state.neighborhoodChanged || 
-        state.cepChanged || 
-        state.cityChanged || 
+        state.nameChanged ||
+        state.emailChanged ||
+        state.passwordChanged ||
+        state.cellphoneChanged ||
+        state.birthdayChanged ||
+        state.identificationChanged ||
+        state.houseNumberChanged ||
+        state.complementChanged ||
+        state.streetChanged ||
+        state.neighborhoodChanged ||
+        state.cepChanged ||
+        state.cityChanged ||
         state.ufChanged
       );
     },

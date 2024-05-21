@@ -9,6 +9,11 @@ const profilePic = ref(store.state.profilePicChanged);
 const router = useRouter();
 const fileInput = ref(null);
 
+if (router.currentRoute.value.path === '/cadastrar') {
+    profilePic.value = 'https://t3.ftcdn.net/jpg/07/21/89/28/240_F_721892884_VkaE9y8m4x5fURbD9GZQ0PY8oJ7ehxOm.jpg';
+    const name = ref('');
+}
+
 function uploadImage(e) {
     fileInput.value.click();
 
@@ -31,14 +36,14 @@ function uploadImage(e) {
     <div id="profile">
         <div id="container-picture">
             <img :src="profilePic">
-            <div  v-if="router.currentRoute.value.path == '/editar'" class="camera-container" @click="uploadImage">
+            <div  v-if="router.currentRoute.value.path === '/editar' || router.currentRoute.value.path === '/cadastrar'" class="camera-container" @click="uploadImage">
                 <font-awesome-icon id="camera-icon" :icon="['fas', 'camera']" />
             </div>
             <input type="file" accept="image/*" @change="uploadImage" ref="fileInput">
         </div>
-        <p>
+        <p v-if = "router.currentRoute.value.path !== '/cadastrar'">
             {{ name }}
-            <font-awesome-icon v-if="router.currentRoute.value.path !== '/editar'" id="pencil-icon" :icon="['fas', 'pencil']" style="color: #ffffff;" @click="router.push({ path: '/editar' })" />
+            <font-awesome-icon v-if="router.currentRoute.value.path !== '/editar' && router.currentRoute.value.path !== '/cadastrar'" id="pencil-icon" :icon="['fas', 'pencil']" style="color: #ffffff;" @click="router.push({ path: '/editar' })" />
         </p>
     </div>
 </template>
@@ -50,6 +55,8 @@ function uploadImage(e) {
     display: grid;
     justify-items: center;
     text-align: center;
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 50px;
     gap: 10px;
 }

@@ -16,8 +16,12 @@ function togglePasswordVisibility() {
 }
 
 function logar() {
+    if (email.value.trim() === '' || password.value.trim() === '') {
+        alert('Login ou senha incorretos!');
+        return;
+    }
     if (email.value.trim() === store.state.emailChanged && password.value.trim() === store.state.passwordChanged) {
-        router.push({ path: '/' });
+        router.push({ path: '/meus-cursos' });
     } else {
         alert('Login ou senha incorretos!');
     }
@@ -47,7 +51,8 @@ function logar() {
                     </div>
                 </div>
                 <button @click="logar" id="entrar">ENTRAR</button>
-
+                
+                <a @click="router.push({ path: '/cadastrar' })" id="cadastro" >Faça seu cadastro</a>
             </div>
             <div id="container-imagem-login">
                 <img id="imagem-login"
@@ -160,5 +165,20 @@ input {
 
 #logo-unifeso {
     width: 220px !important;
+}
+
+#cadastro {
+    padding-top: 15px;
+    color: black;
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    transition: 0.5s
+}
+
+#cadastro:hover {
+    color: blue;
+    transform: scale(1.1);
 }
 </style>

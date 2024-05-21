@@ -14,6 +14,7 @@ function showSlide(slideIndex) {
     }
     document.getElementById(`slide-${slideIndex}`).className = "slide-visible fade";
 }
+
 </script>
 
 <template>
