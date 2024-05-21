@@ -14,3 +14,9 @@ export const assertChildWithAttribute = (args) => {
 }
 
 export const assertText = (selector, text) => cy.get(selector).contains(text)
+
+export const typeText = (selector, text) => cy.get(selector).type(text)
+
+export const selectValue = (selector, value) => cy.get(selector).select(value)
+
+export const shouldHave = (selector, asset, field, value) => cy.get(selector).should(asset, field, value)
