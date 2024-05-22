@@ -15,5 +15,20 @@ export class CursosPageObject {
     childCardCurso = 'p'
     dadTilteSection = 'div[id=content-itens]'
     childTitleSection = 'svg'
-    visit = () => cy.visit('http://localhost:5173')
+    inputLogin = 'input[id=campo-email]'
+    inputSenha = 'input[id=campo-senha]'
+    inputNome = 'input[id=campo-nome]'
+    maskPass = 'svg[data-icon=eye-slash]'
+    saveButton = 'button[id=salvar]'
+    inputData = 'input[id=campo-data]'
+    inputTelefone = 'input[id=campo-telefone]'
+    inputIdent = 'input[id=campo-ident]'
+    inputNumCasa = 'input[id=campo-numeroCasa]'
+    inputComplemento = 'input[id=campo-complemento]'
+    inputLogradouro = 'input[id=campo-logradouro]'
+    inputBairro = 'input[id=campo-bairro]'
+    inputCep = 'input[id=campo-cep]'
+    inputCidade = 'input[id=campo-cidade]'
+    selectorUF = 'select[id=campo-uf]'
+    visit = () => cy.visit('http://localhost:5173/meus-cursos')  
 }
