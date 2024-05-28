@@ -8,6 +8,8 @@
     "cy:open": "cypress open",
     "test": "start-server-and-test dev http://localhost:5173 cy:open",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
   "dependencies": {
