@@ -3,6 +3,7 @@
   "private": false,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://centro-de-aprendizagem-5-periodo.github.io/Front",
   "scripts": {
     "dev": "vite",
     "cy:open": "cypress open",
