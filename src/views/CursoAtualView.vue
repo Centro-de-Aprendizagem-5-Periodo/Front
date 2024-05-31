@@ -8,16 +8,9 @@ import MateriaComplementarComponent from '../components/cursoAtual/MateriaComple
 import { useRoute } from 'vue-router';
 import ButtonComponent from '../components/cursoAtual/ButtonComponent.vue';
 
-const slides = [
-  "https://cdn.sketchbubble.com/pub/media/catalog/product/cache/1/image/720x540/c96a280f94e22e3ee3823dd0a1a87606/s/c/scrum-process-slide1_2.png",
-  "https://cdn.sketchbubble.com/pub/media/catalog/product/cache/1/image/720x540/c96a280f94e22e3ee3823dd0a1a87606/s/c/scrum-process-slide2_2.png",
-  "https://cdn.sketchbubble.com/pub/media/catalog/product/cache/1/image/720x540/c96a280f94e22e3ee3823dd0a1a87606/s/c/scrum-process-slide3_2.png",
-  "https://cdn.sketchbubble.com/pub/media/catalog/product/cache/1/image/720x540/c96a280f94e22e3ee3823dd0a1a87606/s/c/scrum-process-slide6_2.png",
-  "https://cdn.sketchbubble.com/pub/media/catalog/product/cache/1/image/720x540/c96a280f94e22e3ee3823dd0a1a87606/s/c/scrum-process-slide7_2.png"
-];
-
 const route = useRoute();
 const currentHeaderTitle = route.name
+const partOne = route.params[0]
 
 </script>
 
@@ -26,12 +19,11 @@ const currentHeaderTitle = route.name
   <div id="page-wrap">
     <HeaderComponent :title="currentHeaderTitle" />
     <div id="slide-position">
-      <SlidesComponent :slides="slides" />
+      <SlidesComponent :slides="partOne.slides" />
     </div>
     <SectionTitleComponent :title="'Materiais complementares:'" />
     <MateriaComplementarComponent />
     <ButtonComponent />
-
   </div>
 </template>
 

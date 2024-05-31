@@ -26,7 +26,7 @@ const sections = [
   {
     title: 'Cursos concluídos',
     courses: [
-      { title: 'Fundamentos do Scrum', img: "" },
+      { title: 'Fundamentos do Scrum', img: "https://www.inesdi.com/sites/default/files/inline-images/531x354xmetodologia,P20scrum,P202.jpg.pagespeed.ic.FVz7Rkz-by.jpg" },
       { title: 'Curso teste 2', img: ""  }
     ]
   }

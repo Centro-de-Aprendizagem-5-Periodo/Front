@@ -1,13 +1,14 @@
 <script setup>
+const props = defineProps({
+    materiaisComplementares: Object
+})
 </script>
 
 <template>
     <div class="materia-container">
         <div class='testinho'>
-            <ul>
-                <li>"O que é o scrum?": <a href="https://www.atlassian.com/br/agile/scrum">https://www.atlassian.com/br/agile/scrum</a></li>
-                <li>"Scrum": <a href="https://youtu.be/3aCww_1RnL0">https://youtu.be/3aCww_1RnL0</a></li>
-                <li>"Scrum Guide:" <a href="https://www.scrum.org/resources/scrum-guide"> https://www.scrum.org/resources/scrum-guide</a></li>
+            <ul v-for="(materialComplementar) in props.materiaisComplementares">
+                <li> {{materialComplementar.title}}: <a href="`${materialComplementar.link}`">{{materialComplementar.link}}</a></li>
             </ul>
         </div>
     </div>
