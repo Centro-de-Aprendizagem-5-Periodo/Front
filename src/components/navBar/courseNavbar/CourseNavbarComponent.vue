@@ -10,7 +10,7 @@ const store = useStore();
 const router = useRouter();
 
 const props = defineProps({
-    buttons: Array
+    courseInfo: Object
 });
 
 function closeNavBar() {
@@ -37,7 +37,7 @@ function entrarTelaInicial() {
             <i><font-awesome-icon class="icon" icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
         </div>
         <div class="nome-curso-div">
-            <p id="nome-curso">Fundamentos do Scrum</p> <!-- TODO: passar por parametro -->
+            <p id="nome-curso">{{courseInfo.name}}</p> <!-- TODO: passar por parametro -->
         </div>
         <div id="progress-container">
             <ProgressBarComponent />
@@ -48,7 +48,6 @@ function entrarTelaInicial() {
         </nav>
         <TitleNavBarComponent title="Módulos" />
         <ActivityButtonComponent title="Aula 1: Processos" time="02:00" completed/>
-
     </div>
 </template>
 
