@@ -40,14 +40,14 @@ function entrarTelaInicial() {
             <p id="nome-curso">{{course.name}}</p>
         </div>
         <div id="progress-container">
-            <ProgressBarComponent />
+            <ProgressBarComponent :percentage="`${course.progress}`"/>
         </div>
         <TitleNavBarComponent title="Aula atual" />
         <nav class="item-list">
-            <SelectComponent :courseName="`${course.name}`" :courseParts="`${course.parts}`"/>
+            <SelectComponent :courseParts="`${course.parts}`"/>
         </nav>
         <TitleNavBarComponent title="Módulos" />
-        <ActivityButtonComponent v-for="(module) in course.currentPart.modules" :title="`Aula ${module.number}: ${module.title}`" :time="`${module.duration}`" completed/>
+        <ActivityButtonComponent v-for="(module) in course.currentPart.modules" :number="`${module.number}`" :title="`${module.title}`" :time="`${module.duration}`" completed/>
     </div>
 </template>
 

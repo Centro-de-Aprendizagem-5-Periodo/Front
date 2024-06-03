@@ -3,8 +3,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const props = defineProps({
-    courseName: String,
-    courseParts: Number
+    courseParts: String
 });
 
 let selected = ref('1');
@@ -12,7 +11,8 @@ let selected = ref('1');
 var router = useRouter();
 
 async function changePage() {
-    const courseUrl = props.courseName.replaceAll(" ", "-")
+    const courseUrl = router.currentRoute.value.params.nome.replaceAll(" ", "-")
+    console.log("select " + `/curso/${courseUrl}/${selected.value}/1`)
     await router.push({path: `/curso/${courseUrl}/${selected.value}/1`})
 }
 
@@ -20,7 +20,7 @@ async function changePage() {
 
 <template>
     <div>
-        <select v-model="selected" :onselect="changePage()">
+        <select v-model="selected" @change="changePage()">
             <option v-for="(part) in Array.from({ length: courseParts }, (value, index) => index + 1)" :value="`${part}`">Aula {{part}}</option>
         </select>
     </div>

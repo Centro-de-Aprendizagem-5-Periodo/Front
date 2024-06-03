@@ -16,11 +16,11 @@ async function entrarTelaCurso() {
 </script>
 
 <template>
-    <div>
-        <div :id="`${props.course.title}`" class="adjust-img" @click="entrarTelaCurso()">
+    <div :id="`${props.course.title}`">
+        <div class="card" @click="entrarTelaCurso()">
             <img :src="isExistsImg ? props.course.img : defaultImg" :id="`${props.course.title}-image`">
         </div>
-        <div id="titleArea" @click="entrarTelaCurso">
+        <div class="titleArea" @click="entrarTelaCurso">
             <p>{{ props.course.title }}</p>
         </div>
     </div>
@@ -37,12 +37,9 @@ p {
     padding-left: 10px;
 }
 
-.adjust-img {
+.card {
     justify-content: center;
     align-items: center;
-}
-
-#card {
     display: flex;
     border: 1px solid $gray;
     border-bottom-width: 0;
@@ -53,7 +50,7 @@ p {
     transition: 0.5s;
 }
 
-#titleArea {
+.titleArea {
     display: flex;
     align-items: center;
     border: 1px solid $gray;
@@ -68,7 +65,7 @@ p {
     transition: 0.5s;
 }
 
-#card:hover, #titleArea:hover, #card:hover + #titleArea, #card:has(+ #titleArea:hover) {
+.card:hover, .titleArea:hover, .card:hover + .titleArea, .card:has(+ .titleArea:hover) {
     transform: scale(1.1);
 }
 </style>

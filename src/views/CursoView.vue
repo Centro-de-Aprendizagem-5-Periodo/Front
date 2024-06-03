@@ -5,20 +5,25 @@ import SlidesComponent from '../components/curso/slide/SlidesComponent.vue';
 import MaterialComplementarComponent from '../components/curso/MaterialComplementarComponent.vue';
 
 import { useRoute } from 'vue-router';
+import { ref, watch } from 'vue';
 import ButtonComponent from '../components/curso/ButtonComponent.vue';
 import VideoComponent from '../components/curso/video/VideoComponent.vue';
 
 const route = useRoute();
 
-let course = null;
+let course = ref(null);
 
-const initialize = () => {
-  // buscar do "BE" pelo nome do curso route.params.nome
-  if (route.params.nome.replaceAll("-", " ") === "Fundamentos do Scrum" && route.params.aula == 1) {
+// watch the params of the route to fetch the data again
+watch(() => route.params, fetchData, { immediate: true })
+
+async function fetchData(params) {
+ // buscar do "BE" pelo nome do curso route.params.nome
+ if (route.params.nome.replaceAll("-", " ") === "Fundamentos do Scrum" && (params.aula == 1 && route.params.modulo == 1)) {
     course = {
       name: "Fundamentos do Scrum",
       image: "img",
       parts: 5,
+      progress: 50,
       currentPart: {
               number: 1,
               modules: [{number: 1, title: "Processos", duration: "01:00"}, {number: 2, title: "Modulo 2", duration: "02:00"}, {number: 3, title: "Modulo 3", duration: "03:00"}],
@@ -56,16 +61,17 @@ const initialize = () => {
               }
       }
     }
-  } else if (route.params.nome.replaceAll("-", " ") === "Fundamentos do Scrum" && route.params.aula == 2) {
+  } else if (route.params.nome.replaceAll("-", " ") === "Fundamentos do Scrum" && (route.params.aula == 2 || params.modulo == 2)) {
     course = {
       name: "Fundamentos do Scrum",
       image: "img",
       parts: 5,
+      progress: 60,
       currentPart: {
-              number: 2,
+              number: 1,
               modules: [{number: 1, title: "Processos", duration: "01:00"}, {number: 2, title: "Modulo 2", duration: "02:00"}, {number: 3, title: "Modulo 3", duration: "03:00"}],
               currentModule: {
-                number: 1,
+                number: 2,
                 content: {
                             pageType: "slide",
                             slides: [
@@ -89,6 +95,7 @@ const initialize = () => {
       name: "Outro Curso",
       image: "img",
       parts: 5,
+      progress: 50,
       currentPart: {
         number: 1,
         modules: [{number: 1, title: "Modulo 1", duration: "01:00"}, {number: 2, title: "Modulo 2", duration: "02:00"}, {number: 3, title: "Modulo 3", duration: "03:00"}],
@@ -113,9 +120,7 @@ const initialize = () => {
       }      
     }
   }
-};
-
-initialize();
+}
 </script>
 
 <template>
