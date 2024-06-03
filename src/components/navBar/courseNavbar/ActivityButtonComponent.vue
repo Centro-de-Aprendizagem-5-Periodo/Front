@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <button class="container">
+    <button type="button" class="container">
       <div class="main-components">
         <div id="box-completed">
                 <i v-if="props.completed">

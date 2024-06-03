@@ -24,7 +24,7 @@ const routes = [
     component: TodosOsCursosView
   },
   {
-    path: "/curso/:nome/:modulo",
+    path: "/curso/:nome/:aula/:modulo",
     name: "Curso",
     component: CursoView
   },

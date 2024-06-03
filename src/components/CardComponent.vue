@@ -10,7 +10,7 @@ var router = useRouter()
 
 async function entrarTelaCurso() {
     var courseName = props.course.title.replaceAll(" ", "-")
-    await router.push({path: `/curso/${courseName}/1`})
+    await router.push({path: `/curso/${courseName}/1/1`})
 }
 
 </script>
