@@ -23,7 +23,6 @@ function isSelectedButton() {
 async function changePage() {
   const courseUrl = router.currentRoute.value.params.nome.replaceAll(" ", "-")
   const part = router.currentRoute.value.params.aula
-  console.log(`/curso/${courseUrl}/${part}/${props.number}`)
   await router.push({path: `/curso/${courseUrl}/${part}/${props.number}`})
 }
 
@@ -38,7 +37,7 @@ async function changePage() {
                     <font-awesome-icon id="completed-icon" class="icon" icon="check" color="#27A859" size="2x" />
                 </i>
             </div>
-        <p id="title-text">Aula {{ props.number }} : {{ props.title }}</p>
+        <p id="title-text">{{ props.title }}</p>
       </div>
 
       <div v-if="time" id="time">
