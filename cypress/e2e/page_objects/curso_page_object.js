@@ -11,7 +11,7 @@ export class CursosPageObject {
     myCoursesText = 'Meus cursos'
     myCertificatesText = 'svg[data-icon=scroll]'
     allCoursesText = 'Todos os cursos'
-    dadCardCurso = 'div[id=card]'
+    dadCardCurso = 'div[class=card]'
     childCardCurso = 'p'
     dadTilteSection = 'div[id=content-itens]'
     childTitleSection = 'svg'
