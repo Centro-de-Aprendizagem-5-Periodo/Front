@@ -6,7 +6,7 @@ const page = new CursosPageObject();
 
     beforeEach(() => {
         page.visit()
-        click(page.myCertificatesText)
+        clickButtonWithText(page.myCertificatesText)
     })
 
     it('Clicar no card de certificado baixa um certificado', () => {

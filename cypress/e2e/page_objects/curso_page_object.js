@@ -9,7 +9,7 @@ export class CursosPageObject {
     editButton = 'svg[data-icon=pencil]'
     sectionTitle = 'button[class=selected]'
     myCoursesText = 'Meus cursos'
-    myCertificatesText = 'svg[data-icon=scroll]'
+    myCertificatesText = 'Meus certificados'
     allCoursesText = 'Todos os cursos'
     dadCardCurso = 'div[class=card]'
     childCardCurso = 'p'

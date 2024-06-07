@@ -38,7 +38,6 @@ describe('navbar', () => {
 
     it('botao com icone de caneta deve permitir mudar informacoes do usuario', () => {
         click(page.editButton)
-        // aguardando implementacao
     })
 
     it('botao meus cursos abre pagina de meus cursos', () => {
