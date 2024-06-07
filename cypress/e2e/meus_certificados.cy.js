@@ -1,5 +1,5 @@
 import { CursosPageObject } from "./page_objects/curso_page_object"
-import { click } from './utils/commands'
+import { click, clickButtonWithText } from './utils/commands'
 
 describe('pagina meus certificados', () => {
 const page = new CursosPageObject();
