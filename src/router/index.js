@@ -3,7 +3,7 @@ import LoginView from "../views/LoginView.vue";
 import MeusCursosView from "../views/MeusCursosView.vue"
 import MeusCertificadosView from "../views/MeusCertificadosView.vue"
 import TodosOsCursosView from "../views/TodosOsCursosView.vue"
-import CursoAtualView from "../views/CursoAtualView.vue";
+import CursoView from "../views/CursoView.vue";
 import EditarUsuarioView from "../views/EditarUsuarioView.vue"
 import CadastrarUsuarioView from "../views/CadastrarUsuarioView.vue"
 
@@ -19,14 +19,14 @@ const routes = [
     component: MeusCertificadosView
   },
   {
-    path: "/curso-atual/:curso/:modulo",
-    name: "Curso Atual",
-    component: CursoAtualView
-  },
-  {
     path: "/cursos",
     name: "Todos Cursos",
     component: TodosOsCursosView
+  },
+  {
+    path: "/curso/:nome/:aula/:modulo",
+    name: "Curso",
+    component: CursoView
   },
   {
     path: "/",

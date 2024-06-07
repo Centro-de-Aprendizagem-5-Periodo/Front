@@ -1,29 +1,26 @@
 <script setup>
 const defaultImg = "https://i.imgur.com/T8Kig8u.png"
-const scrum = "https://www.inesdi.com/sites/default/files/inline-images/531x354xmetodologia,P20scrum,P202.jpg.pagespeed.ic.FVz7Rkz-by.jpg"
 const props = defineProps({
     course: Object
 })
-const imageValue = props.course.image
-const isExistsImg = props.course.title == "Fundamentos do Scrum";
-// const isExistsImg = !!imageValue;
+const isExistsImg = props.course.img !== "";
 import { useRouter } from 'vue-router';
 
 var router = useRouter()
 
-function entrarTelaCurso(courseName) {
-    courseName = courseName.replaceAll(" ", "-")
-    router.push({ path: `/curso-atual/${courseName}/1` })
+async function entrarTelaCurso() {
+    var courseName = props.course.title.replaceAll(" ", "-")
+    await router.push({path: `/curso/${courseName}/1/1`})
 }
 
 </script>
 
 <template>
-    <div>
-        <div id="card" :class="!isExistsImg ? 'adjust-img' : ''" @click="entrarTelaCurso(props.course.title)">
-            <img :src="isExistsImg ? scrum : defaultImg" :id="!isExistsImg ? 'defaultImg' : ''">
+    <div :id="`${props.course.title}`">
+        <div class="card" @click="entrarTelaCurso()">
+            <img :src="isExistsImg ? props.course.img : defaultImg" :id="`${props.course.title}-image`">
         </div>
-        <div id="titleArea" @click="entrarTelaCurso">
+        <div class="titleArea" @click="entrarTelaCurso">
             <p>{{ props.course.title }}</p>
         </div>
     </div>
@@ -34,18 +31,16 @@ function entrarTelaCurso(courseName) {
 
 img {
     width: 100%;
+    height: 100%;
 }
 
 p {
     padding-left: 10px;
 }
 
-.adjust-img {
+.card {
     justify-content: center;
     align-items: center;
-}
-
-#card {
     display: flex;
     border: 1px solid $gray;
     border-bottom-width: 0;
@@ -56,7 +51,7 @@ p {
     transition: 0.5s;
 }
 
-#titleArea {
+.titleArea {
     display: flex;
     align-items: center;
     border: 1px solid $gray;
@@ -71,7 +66,7 @@ p {
     transition: 0.5s;
 }
 
-#card:hover, #titleArea:hover, #card:hover + #titleArea, #card:has(+ #titleArea:hover) {
+.card:hover, .titleArea:hover, .card:hover + .titleArea, .card:has(+ .titleArea:hover) {
     transform: scale(1.1);
 }
 </style>

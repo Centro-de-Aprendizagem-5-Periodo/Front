@@ -10,7 +10,7 @@ const store = useStore();
 const router = useRouter();
 
 const props = defineProps({
-    buttons: Array
+    course: Object
 });
 
 function closeNavBar() {
@@ -32,23 +32,22 @@ function entrarTelaInicial() {
             <i><font-awesome-icon class="icon" icon="arrow-left" color="#ebe1e1"
                     size="2x" @click="entrarTelaInicial" /></i>
             <div id="profile">
-                <img id="course-img" src="https://www.kindpng.com/picc/m/53-539760_scrum-logo-hd-png-download.png">
+                <img id="course-img" :src="`${course.image}`">
             </div>
             <i><font-awesome-icon class="icon" icon="times" color="#ebe1e1" size="2x" @click="closeNavBar" /></i>
         </div>
         <div class="nome-curso-div">
-            <p id="nome-curso">Fundamentos do Scrum</p> <!-- TODO: passar por parametro -->
+            <p id="nome-curso">{{course.name}}</p>
         </div>
         <div id="progress-container">
-            <ProgressBarComponent />
+            <ProgressBarComponent :percentage="`${course.progress}`"/>
         </div>
         <TitleNavBarComponent title="Aula atual" />
         <nav class="item-list">
-            <SelectComponent />
+            <SelectComponent :courseParts="`${course.parts}`"/>
         </nav>
         <TitleNavBarComponent title="Módulos" />
-        <ActivityButtonComponent title="Aula 1: Processos" time="02:00" completed/>
-
+        <ActivityButtonComponent v-for="(module) in course.currentPart.modules" :number="`${module.number}`" :title="`${module.title}`" :time="`${module.duration}`" completed/>
     </div>
 </template>
 

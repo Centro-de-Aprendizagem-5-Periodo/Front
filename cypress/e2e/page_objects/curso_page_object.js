@@ -1,8 +1,8 @@
 export class CursosPageObject {
     navbar = {
-        div: 'div[id=nav-bar]',
-        openButton: 'svg[data-icon=bars]',
-        closeButton: 'svg[data-icon=xmark]'
+    div: 'div[id=nav-bar]',
+    openButton: 'svg[data-icon=bars]',
+    closeButton: 'svg[data-icon=xmark]'
     }
     logoutButton = 'svg[data-icon=arrow-right-from-bracket]'
     profileDiv = 'div[id=profile]'
@@ -11,7 +11,7 @@ export class CursosPageObject {
     myCoursesText = 'Meus cursos'
     myCertificatesText = 'Meus certificados'
     allCoursesText = 'Todos os cursos'
-    dadCardCurso = 'div[id=card]'
+    dadCardCurso = 'div[class=card]'
     childCardCurso = 'p'
     dadTilteSection = 'div[id=content-itens]'
     childTitleSection = 'svg'
@@ -30,5 +30,6 @@ export class CursosPageObject {
     inputCep = 'input[id=campo-cep]'
     inputCidade = 'input[id=campo-cidade]'
     selectorUF = 'select[id=campo-uf]'
-    visit = () => cy.visit('http://localhost:5173/meus-cursos')  
+    downloadButton = 'div[class=box-certificado]'
+    visit = () => cy.visit('http://localhost:5173/meus-cursos')
 }

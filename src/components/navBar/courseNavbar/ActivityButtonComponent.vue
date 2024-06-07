@@ -1,6 +1,8 @@
 <script setup>
+import { useRouter } from 'vue-router';
 
 const props = defineProps({
+  number: String,
   title: String,
   completed: {
     type: Boolean,
@@ -12,10 +14,23 @@ const props = defineProps({
   }
 })
 
+const router = useRouter();
+
+function isSelectedButton() {
+    return (props.number == router.currentRoute.value.params.modulo)
+}
+
+async function changePage() {
+  const courseUrl = router.currentRoute.value.params.nome.replaceAll(" ", "-")
+  const part = router.currentRoute.value.params.aula
+  await router.push({path: `/curso/${courseUrl}/${part}/${props.number}`})
+}
+
 </script>
 
 <template>
-    <button class="container">
+    <button type="button" :class="isSelectedButton() ? 'selected' : ''"
+        @click="changePage()">
       <div class="main-components">
         <div id="box-completed">
                 <i v-if="props.completed">
@@ -34,7 +49,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 @import '../../../assets/global.scss';
 
-.container {
+button {
   display: flex;
   align-items: center;
   border: none;
@@ -42,6 +57,20 @@ const props = defineProps({
   width: 100%;
   height: 30px;
   padding: 0px 35px 0px 35px;
+}
+
+button:hover {
+    background-color: gray;
+}
+
+.selected {
+    border: solid;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-width: 8px;
+    border-color: #5EAD4A;
+    background-color: gray;
 }
 
 .main-components {

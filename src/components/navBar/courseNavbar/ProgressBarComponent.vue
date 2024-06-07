@@ -1,15 +1,17 @@
 <script setup>
-var progress = 100;
+const props = defineProps({
+    percentage: Number
+});
 </script>
 
 <template>
     <div class="progress-bar">
         <div class="main">
             <div class="progress">
-                <span>{{ progress }}%</span>
+                <span>{{ props.percentage }}%</span>
             </div>
             <div class="shell">
-                <div class="bar" :style="{ width: progress + '%' }"></div>
+                <div class="bar" :style="{ width: props.percentage + '%' }"></div>
             </div>
         </div>
     </div>
