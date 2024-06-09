@@ -35,6 +35,7 @@ img {
 }
 
 p {
+    font-weight: bold;
     padding-left: 10px;
 }
 
@@ -44,7 +45,7 @@ p {
     display: flex;
     border: 1px solid $gray;
     border-bottom-width: 0;
-    width: 18vw;
+    width: 100%;
     min-width: 220px;
     height: 180px;
     cursor: pointer;
@@ -59,7 +60,7 @@ p {
     background-color: $light-gray;
     font-family: $font-style;
     font-weight: 600;
-    width: 18vw;
+    width: 100%;
     min-width: 220px;
     height: 40px;
     cursor: pointer;

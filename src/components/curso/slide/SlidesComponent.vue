@@ -72,6 +72,7 @@ img {
 
 #page-number {
     color: black;
+    font-family: Inter;
     padding: 8px 12px;
     position: absolute;
     top: 100%;

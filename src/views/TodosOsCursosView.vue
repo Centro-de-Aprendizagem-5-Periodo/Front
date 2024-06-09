@@ -17,13 +17,8 @@ const sections = [
 	{
 		title: 'Cursos disponíveis',
 		courses: [
-			{ title: 'Fundamentos do Scrum', img: "" },
-			{ title: 'Curso teste 2', img: "" },
-			{ title: 'Curso teste 3', img: "" },
-			{ title: 'Curso teste 4', img: "" },
-			{ title: 'Curso teste 5', img: "" },
-			{ title: 'Curso teste 6', img: "" },
-			{ title: 'Curso teste 7', img: "" }
+			{ title: 'Fundamentos do Scrum', img: "https://www.inesdi.com/sites/default/files/inline-images/531x354xmetodologia,P20scrum,P202.jpg.pagespeed.ic.FVz7Rkz-by.jpg" },
+			{ title: 'Sistemas Operacionais', img: "https://tse1.mm.bing.net/th?id=OIP.948ARNFx15GUXG1T__MidwHaEK&pid=Api&P=0&h=180" },
 		]
 	}
 ]

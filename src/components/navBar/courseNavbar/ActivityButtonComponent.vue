@@ -57,6 +57,7 @@ button {
   width: 100%;
   height: 30px;
   padding: 0px 35px 0px 35px;
+  cursor: pointer;
 }
 
 button:hover {

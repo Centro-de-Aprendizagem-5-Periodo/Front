@@ -207,6 +207,7 @@ input, select {
 	width: 100%;
 	margin-bottom: 5px;
 	box-sizing: border-box;
+	font-family: Inter;
 	transition: 0.5s;
 }
 
