@@ -84,8 +84,9 @@ function validateInput() {
     }
 }
 
-function saveOnStore() {
+function saveOnStore(id) {
 	const payload = {
+		userId: id || store.state.userId,
         name: name.value.trim() || store.state.nameChanged,
         email: email.value.trim() || store.state.emailChanged,
         password: password.value.trim() || store.state.passwordChanged,
@@ -105,8 +106,15 @@ function saveOnStore() {
 }
 
 async function register() {
-	validateInput();
-	saveOnStore();
+	validateInput();	
+	try {
+		insertUser();
+	} catch (error) {
+		alert("Estamos passando por alguns problemas no atual momento.\nFavor tentar novamente mais tarde.");
+	}
+}
+
+async function insertUser() {
 	await axios.post(
 		"http://localhost:8080/api/v1/usuario",
 		{
@@ -115,7 +123,10 @@ async function register() {
 			"telefone": cellphone.value.trim(),
 			"identificacao": identification.value.trim()
 		}
-	).then(response => router.push({ path: '/' }));
+	).then(response => {
+		saveOnStore(response.data.id);
+		router.push({ path: '/' })
+});
 }
 
 </script>
