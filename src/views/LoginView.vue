@@ -32,27 +32,28 @@ function logar() {
 <template>
     <div id="background">
         <div id="container">
-            <div id="container-form">
+            <div id="container-login">
                 <img id="logo-unifeso" src="https://www.unifeso.edu.br/images/logo/UNIFESO.png">
+                <div id="container-form">
+                    <div id="container-form-input">
+                        <p>Faça agora seu login</p>
 
-                <div id="container-form-input">
-                    <p>Faça agora seu login</p>
-
-                    <div class="input-login">
-                        <label for="login">Login (Email)</label>
-                        <input type="text" id="login" v-model="email" maxlength = "64">
-                    </div>
-                    <div class="input-login">
-                        <label for="senha">Senha</label>
-                        <div id="container-password">
-                            <input type="password" id="senha" v-model="password" maxlength = "32">
-                            <font-awesome-icon id="icon" :icon="showingPassword ? ['fas', 'eye'] : ['fas', 'eye-slash']" @click="togglePasswordVisibility"/>
+                        <div class="input-login">
+                            <label for="login">Login (Email)</label>
+                            <input type="text" id="login" v-model="email" maxlength = "64">
+                        </div>
+                        <div class="input-login">
+                            <label for="senha">Senha</label>
+                            <div id="container-password">
+                                <input type="password" id="senha" v-model="password" maxlength = "32">
+                                <font-awesome-icon id="icon" :icon="showingPassword ? ['fas', 'eye'] : ['fas', 'eye-slash']" @click="togglePasswordVisibility"/>
+                            </div>
                         </div>
                     </div>
+                    <button @click="logar" id="entrar">ENTRAR</button>
+                    
+                    <a @click="router.push({ path: '/cadastrar' })" id="cadastro" >Faça seu cadastro</a>
                 </div>
-                <button @click="logar" id="entrar">ENTRAR</button>
-                
-                <a @click="router.push({ path: '/cadastrar' })" id="cadastro" >Faça seu cadastro</a>
             </div>
             <div id="container-imagem-login">
                 <img id="imagem-login"
@@ -80,7 +81,6 @@ input {
 
 #imagem-login {
     max-width: 92%;
-    padding-left: 5%;
 }
 
 .input-login {
@@ -135,13 +135,23 @@ input {
 }
 
 #container-form {
-    width: 790px;
-    height: 95%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     float: left;
+}
+
+#container-login {
+    flex-direction: column;
+    background: white;
+    display: flex;
+    width: 97vw;
+    height: 97vh;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
 }
 
 #container {
@@ -164,7 +174,7 @@ input {
 }
 
 #logo-unifeso {
-    width: 220px !important;
+    width: 270px !important;
 }
 
 #cadastro {

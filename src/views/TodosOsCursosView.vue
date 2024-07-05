@@ -3,6 +3,8 @@ import HeaderComponent from '../components/HeaderComponent.vue';
 import NavbarComponent from '../components/navBar/profileNavbar/ProfileNavbarComponent.vue';
 import CardsSectionComponent from '../components/CardsSectionComponent.vue';
 import { useRoute } from 'vue-router';
+import { onMounted, ref } from 'vue';
+import axios from 'axios';
 
 const route = useRoute();
 const currentHeaderTitle = route.name
@@ -13,20 +15,25 @@ const buttons = [
 	{ title: 'Todos os cursos', icon: 'book', routeName: 'Todos Cursos' }
 ];
 
-const sections = [
+const sections = ref([
 	{
 		title: 'Cursos disponíveis',
-		courses: [
-			{ title: 'Fundamentos do Scrum', img: "" },
-			{ title: 'Curso teste 2', img: "" },
-			{ title: 'Curso teste 3', img: "" },
-			{ title: 'Curso teste 4', img: "" },
-			{ title: 'Curso teste 5', img: "" },
-			{ title: 'Curso teste 6', img: "" },
-			{ title: 'Curso teste 7', img: "" }
-		]
-	}
-]
+		courses: []
+	}])
+
+onMounted(() => {
+	axios.get("http://localhost:8080/api/v1/cursos").then(response => {
+		console.log(response)
+		console.log(sections.value)
+		const courses = response.data
+		for (let index = 0; index < courses.length; index++) {
+			sections.value[0].courses[index] = { 
+				title: courses[index].nome,
+				img: courses[index].linkImage
+			}
+		}
+	});
+})
 
 </script>
 
