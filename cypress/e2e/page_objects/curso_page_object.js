@@ -5,6 +5,11 @@ export class CursosPageObject {
     closeButton: 'svg[data-icon=xmark]'
     }
     logoutButton = 'svg[data-icon=arrow-right-from-bracket]'
+    cadastro = 'a[id=cadastro]'
+    cadastroButton = 'button[id=cadastrar]'
+    login = 'input[id=login]'
+    loginPass = 'input[id=senha]'
+    entrarButton = 'button[id=entrar]'
     profileDiv = 'div[id=profile]'
     editButton = 'svg[data-icon=pencil]'
     sectionTitle = 'button[class=selected]'
