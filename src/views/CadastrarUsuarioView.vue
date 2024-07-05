@@ -4,6 +4,7 @@ import HeaderComponent from '../components/HeaderComponent.vue';
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute,useRouter } from 'vue-router';
+import axios from 'axios';
 
 const route = useRoute();
 const router = useRouter();
@@ -62,8 +63,8 @@ function togglePasswordVisibility() {
 	showingPassword.value = !showingPassword.value;
 }
 
-function register() {
-    if (
+function validateInput() {
+	if (
         name.value.trim() === '' ||
         email.value.trim() === '' ||
         password.value.trim() === '' ||
@@ -81,8 +82,11 @@ function register() {
         alert('Preencha todos os campos!');
         return;
     }
+}
 
+function saveOnStore(id) {
 	const payload = {
+		userId: id || store.state.userId,
         name: name.value.trim() || store.state.nameChanged,
         email: email.value.trim() || store.state.emailChanged,
         password: password.value.trim() || store.state.passwordChanged,
@@ -99,7 +103,30 @@ function register() {
     };
 
     store.dispatch('modifyUser', payload);
-	router.push({ path: '/' });
+}
+
+async function register() {
+	validateInput();	
+	try {
+		insertUser();
+	} catch (error) {
+		alert("Estamos passando por alguns problemas no atual momento.\nFavor tentar novamente mais tarde.");
+	}
+}
+
+async function insertUser() {
+	await axios.post(
+		"http://localhost:8080/api/v1/usuario",
+		{
+			"email": email.value.trim(),
+			"nome": name.value.trim(),
+			"telefone": cellphone.value.trim(),
+			"identificacao": identification.value.trim()
+		}
+	).then(response => {
+		saveOnStore(response.data.id);
+		router.push({ path: '/' })
+});
 }
 
 </script>

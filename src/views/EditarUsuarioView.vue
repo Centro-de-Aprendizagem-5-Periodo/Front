@@ -4,6 +4,7 @@ import NavbarComponent from '../components/navBar/profileNavbar/ProfileNavbarCom
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute,useRouter } from 'vue-router';
+import axios from 'axios';
 
 const buttons = [
 	{ title: 'Meus cursos', icon: 'graduation-cap', routeName: 'Meus Cursos' },
@@ -16,6 +17,7 @@ const router = useRouter();
 const currentHeaderTitle = route.name;
 const store = useStore();
 
+const id = ref(store.state.userId);
 const name = ref(store.state.nameChanged);
 const email = ref(store.state.emailChanged);
 const password = ref(store.state.passwordChanged);
@@ -68,8 +70,9 @@ function togglePasswordVisibility() {
 	showingPassword.value = !showingPassword.value;
 }
 
-function save() {
+function saveOnStore() {
 	const payload = {
+		userId: store.state.userId,
 		name: name.value.trim() || store.state.nameChanged,
         email: email.value.trim() || store.state.emailChanged,
         password: password.value.trim() || store.state.passwordChanged,
@@ -86,7 +89,29 @@ function save() {
     };
 
     store.dispatch('modifyUser', payload);
-	router.push({ path: '/meus-cursos' });
+}
+
+function save() {
+	try {
+		updateUser();
+	} catch (error) {
+		alert("Estamos passando por alguns problemas no atual momento.\nFavor tentar novamente mais tarde.");
+	}
+}
+
+async function updateUser() {
+	await axios.put(
+		`http://localhost:8080/api/v1/usuario/${id.value}`,
+		{
+			"email": email.value.trim(),
+			"nome": name.value.trim(),
+			"telefone": cellphone.value.trim(),
+			"identificacao": identification.value.trim()
+		}
+	).then(response => {
+		saveOnStore()
+		router.push({ path: '/meus-cursos' })
+	});
 }
 
 </script>

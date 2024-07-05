@@ -3,6 +3,8 @@ import HeaderComponent from '../components/HeaderComponent.vue';
 import NavbarComponent from '../components/navBar/profileNavbar/ProfileNavbarComponent.vue';
 import CardsSectionComponent from '../components/CardsSectionComponent.vue';
 import { useRoute } from 'vue-router';
+import { onMounted, ref } from 'vue';
+import axios from 'axios';
 
 const route = useRoute();
 const currentHeaderTitle = route.name
@@ -13,15 +15,25 @@ const buttons = [
 	{ title: 'Todos os cursos', icon: 'book', routeName: 'Todos Cursos' }
 ];
 
-const sections = [
+const sections = ref([
 	{
 		title: 'Cursos disponíveis',
-		courses: [
-			{ title: 'Fundamentos do Scrum', img: "https://www.inesdi.com/sites/default/files/inline-images/531x354xmetodologia,P20scrum,P202.jpg.pagespeed.ic.FVz7Rkz-by.jpg" },
-			{ title: 'Sistemas Operacionais', img: "https://tse1.mm.bing.net/th?id=OIP.948ARNFx15GUXG1T__MidwHaEK&pid=Api&P=0&h=180" },
-		]
-	}
-]
+		courses: []
+	}])
+
+onMounted(() => {
+	axios.get("http://localhost:8080/api/v1/cursos").then(response => {
+		console.log(response)
+		console.log(sections.value)
+		const courses = response.data
+		for (let index = 0; index < courses.length; index++) {
+			sections.value[0].courses[index] = { 
+				title: courses[index].nome,
+				img: courses[index].linkImage
+			}
+		}
+	});
+})
 
 </script>
 

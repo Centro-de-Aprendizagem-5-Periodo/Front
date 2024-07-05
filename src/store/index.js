@@ -4,6 +4,7 @@ const store = createStore({
   state() {
     return {
       navbarOpen: false,
+      userId: '',
       nameChanged: '',
       emailChanged: '',
       passwordChanged: '',
@@ -25,6 +26,7 @@ const store = createStore({
       state.navbarOpen = !state.navbarOpen;
     },
     modifyUser(state, payload) {
+      state.userId = payload.userId;
       state.nameChanged = payload.name;
       state.emailChanged = payload.email;
       state.passwordChanged = payload.password;
@@ -60,6 +62,7 @@ const store = createStore({
     },
     isUserChanged(state) {
       return (
+        state.userId ||
         state.nameChanged ||
         state.emailChanged ||
         state.passwordChanged ||
