@@ -147,8 +147,8 @@ input {
     flex-direction: column;
     background: white;
     display: flex;
-    width: 97vw;
-    height: 97vh;
+    width: 80vw;
+    height: 90vh;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
@@ -157,8 +157,8 @@ input {
 #container {
     background: white;
     display: flex;
-    width: 97vw;
-    height: 97vh;
+    width: 80vw;
+    height: 90vh;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
