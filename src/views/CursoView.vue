@@ -26,10 +26,10 @@ async function fetchData(params) {
         progress: 100,
         currentPart: {
           number: 1,
-          modules: [{ number: 1, title: "Modulo 1", duration: "01:00" }, { number: 2, title: "Modulo 2", duration: "02:00" }],
+          modules: [{ number: 1, title: "Módulo 1", duration: "01:00" }, { number: 2, title: "Módulo 2", duration: "03:21" }],
           currentModule: {
             number: 1,
-            title: "Modulo 1",
+            title: "Módulo 1",
             content: {
               pageType: "slide",
               slides: [
@@ -72,10 +72,10 @@ async function fetchData(params) {
         progress: 100,
         currentPart: {
           number: 1,
-          modules: [{ number: 1, title: "Modulo 1", duration: "01:00" }, { number: 2, title: "Modulo 2", duration: "03:21" }],
+          modules: [{ number: 1, title: "Módulo 1", duration: "01:00" }, { number: 2, title: "Módulo 2", duration: "03:21" }],
           currentModule: {
             number: 2,
-            title: "Modulo 2",
+            title: "Módulo 2",
             content: {
               pageType: "video",
               video: "scrum.mp4",
@@ -99,10 +99,10 @@ async function fetchData(params) {
         progress: 100,
         currentPart: {
           number: 2,
-          modules: [{ number: 1, title: "Modulo 1", duration: "01:00" }],
+          modules: [{ number: 1, title: "Módulo 1", duration: "01:00" }],
           currentModule: {
             number: 1,
-            title: "Modulo 1",
+            title: "Módulo 1",
             content: {
               pageType: "slide",
               slides: [
@@ -134,10 +134,10 @@ async function fetchData(params) {
         progress: 50,
         currentPart: {
           number: 1,
-          modules: [{ number: 1, title: "Modulo 1", duration: "00:10" }],
+          modules: [{ number: 1, title: "Módulo 1", duration: "00:23" }],
           currentModule: {
             number: 1,
-            title: "Modulo 1",
+            title: "Módulo 1",
             content: {
               pageType: "video",
               video: "so.mp4",
@@ -161,10 +161,10 @@ async function fetchData(params) {
         progress: 50,
         currentPart: {
           number: 2,
-          modules: [{ number: 1, title: "Modulo 1", duration: "01:00" }],
+          modules: [{ number: 1, title: "Módulo 1", duration: "01:00" }],
           currentModule: {
             number: 1,
-            title: "Modulo 1",
+            title: "Módulo 1",
             content: {
               pageType: "slide",
               slides: [

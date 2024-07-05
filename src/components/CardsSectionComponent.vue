@@ -32,7 +32,9 @@ const props = defineProps({
 #cards {
   display: grid;
   margin-top: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  width: 70%;
   grid-gap: 25px;
 }
 </style>

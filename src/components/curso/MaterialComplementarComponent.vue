@@ -38,5 +38,6 @@ ul {
 
 ul li {
   margin: 10px;
+  font-family: Inter;
 }
 </style>

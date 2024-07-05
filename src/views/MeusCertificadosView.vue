@@ -45,7 +45,6 @@ const certificados = [
 
 .container {
     display: grid;
-    height: 100vh;
     grid-template-columns: 400px 400px;
     grid-template-rows: 100px;
     column-gap: 40px;
@@ -55,9 +54,14 @@ const certificados = [
 }
 
 .box-certificado {
-    border: 2px solid black;
+    border: 1px solid #443F3F;
     width: 400px;
     height: 100px;
+    transition: 0.5s;
+}
+
+.box-certificado:hover {
+    transform: scale(1.1);
 }
 
 .flag {
@@ -66,6 +70,7 @@ const certificados = [
     justify-content: center;
     gap: 5px;
     font-family: Inter;
+    color: white;
     background-color: #0FA958;
     width: 115px;
     height: 25px;
@@ -82,9 +87,15 @@ const certificados = [
     text-decoration: none; 
 }
 
+.course-image-container{
+    background-color: rgb(63, 63, 65);
+}
+
 .course-image {
-    width: 40%;
+    border: 2px solid rgb(63, 63, 65);
+    border-radius: 50%;
     height: 100%;
+    box-sizing: border-box;
 }
 
 .icon {
@@ -100,8 +111,9 @@ const certificados = [
 
 .course-title p {
     font-family: Inter;
-    font-weight: 500;
-    padding-top: 20px
+    font-weight: bold;
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 </style>
