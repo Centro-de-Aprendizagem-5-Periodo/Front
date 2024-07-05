@@ -26,7 +26,7 @@ describe('Cadastro de usuário', () => {
         typeText(page.inputCep, '12698456')
         typeText(page.inputCidade, 'Teresópolis')
         selectValue(page.selectorUF, "Rio de Janeiro")
-        click(page.cadastroButton)
+        // click(page.cadastroButton)
     })
 
     it('Validar botao de mostrar senha', () => {

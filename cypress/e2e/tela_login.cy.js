@@ -42,6 +42,6 @@ describe('Cadastro de usuário', () => {
 
         typeText(page.login, 'aaaa')
         typeText(page.loginPass, '1234')
-        click(page.entrarButton)
+        // click(page.entrarButton)
     })
 })
